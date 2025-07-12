@@ -417,8 +417,10 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   border-radius: .88rem;
   box-shadow: var(--shadow);
   margin: 40px auto 0 auto;
-  padding: 27px 6vw 16px 6vw;
-  width: 98vw;
+  padding: 27px 24px 16px 24px; /* Ubah padding ini agar tidak terlalu lebar */
+  width: 100%; /* Ganti dari 98vw ke 100% agar mengikuti lebar parent */
+  max-width: 900px; /* Batasi maksimal lebar agar terlihat rapi di desktop */
+  box-sizing: border-box; /* Tambahkan ini agar padding tidak menambah lebar elemen */
 }
 .faq h2 {
   margin-top:0;
