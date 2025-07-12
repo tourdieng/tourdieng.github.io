@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cek Harga Otomatis Paket Wisata Dieng | Putratour.id</title>
+  <meta name="description" content="Cek harga otomatis paket wisata Dieng dari berbagai kota, durasi, dan peserta. Sistem interaktif, info real-time, lengkap fasilitas, destinasi, & booking mudah. Powered by Putratour.id.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    /* ...CSS tetap, tidak diubah... */
+    :root {
+      --brand: #6a1b9a;
+      --primary: #1976d2;
+      --accent: #ffb300;
+      --bg: #f5f7fa;
+      --card: #fff;
+      --text: #1a2740;
+      --radius: 1.9rem;
+      --shadow: 0 6px 32px #19335a19;
+      --shadow-lg: 0 8px 40px #6a1b9a24;
+    }
+    body {
+      font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--brand);
+      color: #fff;
+      padding: 1.1rem 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0; z-index: 10;
+    }
+    .header-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 24px;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo {
+      width: 38px; height: 38px; background: #fff2; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-logo svg { width: 29px; height: 29px; }
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+    .header-menu {
+      display: flex; gap: 16px; align-items: center;
+    }
+    .header-menu a {
+      color: #fff;
+      font-size: 1.07rem;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 7px 18px;
+      border-radius: 1.3rem;
+      transition: background .17s;
+    }
+    .header-menu a:hover, .header-menu a:focus {
+      background: #fff2;
+      color: #ffd600;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 36px 18px 16px 18px;
+    }
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+      color: var(--brand);
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    h2 {
+      color: var(--primary);
+      margin-top: 36px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    h3 { font-size: 1.1rem; margin-top: 28px; color: var(--brand); font-weight: 700; }
+    .desc {
+      max-width: 650px;
+      color: #294;
+      margin-bottom: 36px;
+      font-size: 1.11rem;
+    }
+    .program-desc {
+      background: #fffbeb;
+      border: 1px solid #ffe082;
+      padding: 18px 22px 12px 22px;
+      border-radius: 1.1rem;
+      color: #5b3b07;
+      margin-bottom: 28px;
+      font-size: 1.06rem;
+      box-shadow: 0 2px 14px #ffd6000b;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 32px 22px 28px 22px;
+      margin-bottom: 26px;
+      transition: box-shadow .2s;
+    }
+    .card:focus-within,
+    .card:hover { box-shadow: 0 12px 50px #1976d219; }
+    form {
+      display: grid;
+      gap: 20px 20px;
+      grid-template-columns: 1fr 1fr;
+      max-width: 100%;
+      align-items: end;
+    }
+    form label { font-weight: 700; margin-bottom: 6px; display: block; }
+    form select, form input {
+      width: 100%; border: 1px solid #d0d5e3; border-radius: 1.2rem;
+      padding: 12px 15px; font-size: 1rem; background: #fafdff;
+      font-family: inherit; outline: none;
+      transition: border .15s;
+      box-sizing: border-box;
+      display: block;
+    }
+    form select:focus, form input:focus { border: 1.5px solid var(--primary);}
+    .btn {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 1.4rem;
+      font-weight: 800;
+      font-size: 1.09rem;
+      cursor: pointer;
+      transition: background .18s, transform .12s;
+      box-shadow: 0 2px 16px #6a1b9a13;
+      grid-column: span 2;
+      margin-top: 8px;
+    }
+    .btn:hover, .btn:focus { background: var(--primary); transform: translateY(-2px) scale(1.04);}
+    .hasil {
+      margin-top: 20px;
+      background: #fafdff;
+      border-radius: 1.3rem;
+      box-shadow: 0 2px 16px #6a1b9a14;
+      padding: 22px 18px;
+      color: #204466;
+      scroll-margin-top: 70px;
+    }
+    .hasil-title { font-size: 1.18rem; font-weight: 700; color: var(--primary); margin-bottom: 12px;}
+    .harga-besar { font-size: 2.1rem; font-weight: 800; color: var(--brand); margin-bottom: 7px;}
+    .list-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 32px;
+      margin: 24px 0 0 0;
+    }
+    .list-col {
+      min-width: 220px;
+      flex: 1;
+      background: #f7fafd;
+      padding: 16px 15px 15px 22px;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px #6a1b9a0b;
+    }
+    .list-col h4 {
+      font-size: 1.01rem;
+      color: var(--brand);
+      margin: 0 0 7px 0;
+      font-weight: 700;
+    }
+    ul { margin: 0; padding-left: 22px;}
+    li { margin-bottom: 4px; font-size: 1rem;}
+    /* Tombol WhatsApp */
+    .wa-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg,#25D366,#128C7E);
+      color: #fff;
+      border: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 13px 28px 13px 28px;
+      border-radius: 1.5rem;
+      margin: 34px auto 0 auto;
+      box-shadow: 0 2px 16px #128C7E13;
+      cursor: pointer;
+      transition: background .19s, transform .12s;
+      text-decoration: none;
+      outline: none;
+      position: relative;
+      z-index: 2;
+      min-width: 260px;
+      max-width: 99vw;
+      text-align: center;
+    }
+    .wa-btn:hover, .wa-btn:focus { background: #128C7E; transform: scale(1.03);}
+    /* FAQ */
+    .faq {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 36px 0;
+      padding: 32px 18px 24px 18px;
+      max-width: 750px;
+    }
+    details { margin-bottom: 20px; }
+    summary {
+      font-weight: 700;
+      font-size: 1.06rem;
+      color: var(--primary);
+      cursor: pointer;
+      outline: none;
+      padding: 4px 0;
+      transition: color .2s;
+    }
+    details[open] summary { color: var(--brand);}
+    .faq p, .faq li { color: #264465; }
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: var(--brand);
+      color: #fff;
+      padding: 18px 0 15px 0;
+      text-align: center;
+      letter-spacing: 0.04em;
+      font-size: 1rem;
+      border-radius: 2rem 2rem 0 0;
+    }
+    @media (max-width:600px){
+      .header-wrap, main { padding-left:10px; padding-right:10px;}
+      h1 { font-size: 1.5rem;}
+      .desc { font-size: 1rem;}
+      .card { padding: 20px 8px;}
+      .faq { padding: 20px 6px 12px 6px;}
+      form { grid-template-columns: 1fr; }
+      .btn { grid-column: span 1;}
+      .list-col { padding: 14px 6px 9px 12px;}
+      form select, form input { width: 100%; min-width: 0;}
+      .wa-btn { min-width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-wrap">
+      <div class="header-left">
+        <div class="brand-logo">
+          <svg fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#fff" fill-opacity="0.15"/><path d="M8 28L18 15L24 23L29 18L35 28H8Z" fill="#ffd600"/><circle cx="18" cy="16" r="1.5" fill="#6a1b9a"/></svg>
+        </div>
+        <span class="brand-title">Putratour.id</span>
+      </div>
+      <nav class="header-menu">
+        <a href="https://instagram.com/putratourdieng" target="_blank" rel="nofollow noopener">Instagram</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Cek Harga Paket Wisata Dieng Otomatis</h1>
+    <div class="desc">
+      <b>Pertama di Dieng!</b> Dapatkan estimasi harga <b>paket wisata Dieng</b> secara <b>otomatis & interaktif</b> tanpa harus menunggu admin.
+      Pilih kota keberangkatan, durasi paket, dan jumlah peserta, sistem kami langsung menampilkan biaya terbaru, fasilitas, dan destinasi lengkap.
+      <br><br>
+      <b>Transparan, cepat, dan data valid setiap hari.</b> Solusi praktis untuk keluarga, rombongan, maupun kantor.
+    </div>
+    <div class="program-desc">
+      <b>Apa itu fitur cek harga otomatis?</b> <br>
+      Halaman ini adalah program aplikasi web khusus dari Putratour.id yang membantu Anda cek biaya paket wisata Dieng secara mandiri dan real-time.  
+      Estimasi langsung, tanpa harus menunggu penawaran via chat. Cocok untuk semua jenis pemesan!
+    </div>
+    <div class="card">
+      <form id="formCekHarga" autocomplete="off">
+        <div>
+          <label for="kota">Kota Keberangkatan</label>
+          <select id="kota" required>
+            <option value="">Pilih Kota...</option>
+            <option value="jogja">Jogja</option>
+            <option value="wonosobo">Wonosobo</option>
+            <option value="purwokerto">Purwokerto</option>
+            <option value="semarang">Semarang</option>
+            <option value="solo">Solo</option>
+            <option value="dieng">Dieng</option>
+            <option value="banjarnegara">Banjarnegara</option>
+            <option value="magelang">Magelang</option>
+            <option value="salatiga">Salatiga</option>
+            <option value="kebumen">Kebumen</option>
+            <option value="cilacap">Cilacap</option>
+            <option value="pekalongan">Pekalongan</option>
+          </select>
+        </div>
+        <div>
+          <label for="durasi">Durasi Paket</label>
+          <select id="durasi" required>
+            <option value="">Pilih Durasi...</option>
+            <option value="1">1 Hari</option>
+            <option value="2">2 Hari 1 Malam</option>
+            <option value="3">3 Hari 2 Malam</option>
+          </select>
+        </div>
+        <div>
+          <label for="peserta">Jumlah Peserta</label>
+          <input type="number" id="peserta" min="2" max="20" placeholder="min. 2 – max. 20" required>
+        </div>
+        <button class="btn" type="submit">Cek Harga</button>
+      </form>
+      <div class="hasil" id="hasilCek" style="display:none"></div>
+    </div>
+
+    <h2>Fasilitas & Destinasi</h2>
+    <div class="list-wrap">
+      <div class="list-col">
+        <h4>Fasilitas Paket</h4>
+        <ul id="fasilitasList"></ul>
+      </div>
+      <div class="list-col">
+        <h4>Destinasi Wisata</h4>
+        <ul id="destinasiList"></ul>
+      </div>
+    </div>
+
+    <a id="waBtn"
+       class="wa-btn"
+       rel="nofollow noopener"
+       target="_blank"
+       href="#">
+      Mau nego harga? Hubungi admin via WhatsApp
+    </a>
+
+    <section class="faq">
+      <h2>FAQ: Informasi Paket Wisata Dieng</h2>
+      <details>
+        <summary>Apa keunggulan sistem cek harga ini?</summary>
+        <p>
+          Sistem cek harga Putratour.id memberikan info <b>real</b> & transparan, update setiap saat. Anda bisa cek biaya dari berbagai kota, durasi, dan peserta tanpa perlu menunggu penawaran manual.
+        </p>
+      </details>
+      <details>
+        <summary>Harga sudah termasuk apa saja?</summary>
+        <p>
+          Semua harga paket <b>all in</b> termasuk transportasi, penginapan (jika menginap), makan, tiket masuk, driver, tour guide, BBM, parkir, tol, dan air mineral. Info detail fasilitas bisa dilihat di bagian atas.
+        </p>
+      </details>
+      <details>
+        <summary>Bisa pesan untuk peserta lebih dari 20 orang?</summary>
+        <p>
+          Untuk group besar di atas 20 orang, silakan hubungi admin Putratour.id langsung untuk penawaran khusus sesuai kebutuhan Anda.
+        </p>
+      </details>
+      <details>
+        <summary>Apakah harga bisa berubah?</summary>
+        <p>
+          Harga di sistem adalah update terbaru, namun bisa berubah sesuai kebijakan tempat wisata, musim liburan, atau permintaan khusus. Pastikan cek sebelum booking.
+        </p>
+      </details>
+      <details>
+        <summary>Bagaimana cara booking atau konsultasi?</summary>
+        <p>
+          Setelah cek harga, Anda bisa langsung konsultasi dan reservasi lewat WhatsApp admin resmi Putratour.id, atau kunjungi website utama untuk info lebih lengkap.
+        </p>
+      </details>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Putratour.id – Cek Harga & Reservasi Paket Wisata Dieng. All rights reserved.
+  </footer>
+  <script>
+    // ==== DATA HARGA, FASILITAS, DESTINASI ====
+    const hargaData = {
+      1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },
+      2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },
+      3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }
+    };
+    const fasilitasData = {
+      1: ['Kendaraan', 'Layanan makan 2x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
+      2: ['Kendaraan', 'Penginapan 1 malam', 'Layanan makan 4x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
+      3: ['Kendaraan', 'Penginapan 2 malam', 'Layanan makan 7x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral']
+    };
+    const destinasiData = {
+      1: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Sentra Oleh-oleh dan Kuliner Khas'],
+      2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'],
+      3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner']
+    };
+
+    // ==== TAMPILKAN DATA FASILITAS & DESTINASI BERDASARKAN DURASI DEFAULT ====
+    const fasilitasList = document.getElementById('fasilitasList');
+    const destinasiList = document.getElementById('destinasiList');
+    document.getElementById('durasi').addEventListener('change', function(){
+      updateFasilitasDestinasi(this.value);
+    });
+    function updateFasilitasDestinasi(val) {
+      fasilitasList.innerHTML = '';
+      destinasiList.innerHTML = '';
+      let f = fasilitasData[val] || [];
+      let d = destinasiData[val] || [];
+      f.forEach(item => {
+        let li = document.createElement('li'); li.textContent = item; fasilitasList.appendChild(li);
+      });
+      d.forEach(item => {
+        let li = document.createElement('li'); li.textContent = item; destinasiList.appendChild(li);
+      });
+    }
+    // Default: kosong
+    updateFasilitasDestinasi('');
+
+    // ==== CEK HARGA & AUTO SCROLL ====
+    document.getElementById('formCekHarga').addEventListener('submit', function(e){
+      e.preventDefault();
+      let kota = document.getElementById('kota').value;
+      let durasi = document.getElementById('durasi').value;
+      let peserta = parseInt(document.getElementById('peserta').value);
+      const hasil = document.getElementById('hasilCek');
+      const waBtn = document.getElementById('waBtn');
+      // Validasi lengkap & wajib
+      if (!kota || !durasi || !peserta || peserta < 2 || peserta > 20) {
+        hasil.style.display = 'block';
+        hasil.innerHTML = "<span style='color:red'>Isi form dengan benar! Jumlah peserta 2–20.</span>";
+        hasil.scrollIntoView({behavior:'smooth', block:'center'});
+        waBtn.style.display = "none";
+        return;
+      }
+      let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
+      if (!hargaArray) {
+        hasil.style.display = 'block';
+        hasil.innerHTML = "<span style='color:red'>Data tidak ditemukan.</span>";
+        hasil.scrollIntoView({behavior:'smooth', block:'center'});
+        waBtn.style.display = "none";
+        return;
+      }
+      let idx = peserta - 2;
+      if (idx < 0) idx = 0;
+      if (idx > hargaArray.length-1) idx = hargaArray.length-1;
+      let harga = hargaArray[idx];
+      let infoGroup = peserta > 11
+        ? `<div style="color:#e57c23;font-size:1rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk penawaran group spesial!</div>`
+        : '';
+      hasil.style.display = 'block';
+      hasil.innerHTML = `
+        <div class="hasil-title">Estimasi Harga Paket</div>
+        <div class="harga-besar">Rp${harga.toLocaleString('id-ID')}/orang</div>
+        <div>Keberangkatan dari <b>${ucwords(kota)}</b> • ${peserta} peserta • ${durasi == 1 ? "1 Hari" : durasi == 2 ? "2 Hari 1 Malam" : "3 Hari 2 Malam"}</div>
+        <div style="margin-top:12px;font-size:1rem; color:#295">
+          Sudah termasuk fasilitas, destinasi, makan, tiket masuk, dan tour guide.
+        </div>
+        ${infoGroup}
+      `;
+      // Auto-update fasilitas & destinasi sesuai durasi
+      updateFasilitasDestinasi(durasi);
+      // Scroll fokus ke hasil harga
+      setTimeout(function(){
+        hasil.scrollIntoView({behavior:'smooth', block:'center'});
+      }, 100);
+      // Update WhatsApp button link + pesan dan tampilkan
+      updateWaBtn(kota, durasi, peserta);
+      waBtn.style.display = "flex";
+    });
+
+    function ucwords(str){
+      return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase());
+    }
+
+    // WhatsApp button
+    function updateWaBtn(kota, durasi, peserta) {
+      var wa = document.getElementById('waBtn');
+      let namaKota = ucwords(kota || '...');
+      let namaDurasi = durasi == 1 ? "1 Hari" : durasi == 2 ? "2 Hari 1 Malam" : durasi == 3 ? "3 Hari 2 Malam" : '';
+      let pesertaText = peserta ? peserta : '';
+      let msg = encodeURIComponent(
+        `Halo admin Putratour.id, saya mau nego harga paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${pesertaText}\nMohon infonya, terima kasih!`
+      );
+      // no wa dipecah (tidak full string)
+      var no = '62' + '811' + '2828' + '283';
+      wa.href = `https://wa.me/${no}?text=${msg}`;
+    }
+    // Set WA btn awal: tetap hidden
+    document.getElementById('waBtn').style.display = "none";
+  </script>
+  <!-- SCHEMA.ORG Structured Data WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cek Harga Paket Wisata Dieng",
+    "url": "https://putratour.id/",
+    "applicationCategory": "Travel & Tourism",
+    "operatingSystem": "All",
+    "description": "Program cek harga otomatis untuk paket wisata Dieng. Pilih kota, durasi, dan jumlah peserta untuk melihat estimasi biaya real-time, fasilitas, destinasi, dan booking via WhatsApp.",
+    "offers": {
+      "@type": "Offer",
+      "price": "Bervariasi",
+      "priceCurrency": "IDR"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Putratour.id",
+      "url": "https://putratour.id"
+    }
+  }
+  </script>
+  <!-- SCHEMA.ORG Structured Data FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apa keunggulan sistem cek harga ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sistem cek harga Putratour.id memberikan info real & transparan, update setiap saat. Anda bisa cek biaya dari berbagai kota, durasi, dan peserta tanpa perlu menunggu penawaran manual."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Harga sudah termasuk apa saja?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Semua harga paket all in termasuk transportasi, penginapan (jika menginap), makan, tiket masuk, driver, tour guide, BBM, parkir, tol, dan air mineral. Info detail fasilitas bisa dilihat di bagian atas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bisa pesan untuk peserta lebih dari 20 orang?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Untuk group besar di atas 20 orang, silakan hubungi admin Putratour.id langsung untuk penawaran khusus sesuai kebutuhan Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah harga bisa berubah?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Harga di sistem adalah update terbaru, namun bisa berubah sesuai kebijakan tempat wisata, musim liburan, atau permintaan khusus. Pastikan cek sebelum booking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara booking atau konsultasi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Setelah cek harga, Anda bisa langsung konsultasi dan reservasi lewat WhatsApp admin resmi Putratour.id, atau kunjungi website utama untuk info lebih lengkap."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
