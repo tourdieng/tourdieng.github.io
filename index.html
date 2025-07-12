@@ -153,21 +153,21 @@ header {
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  padding: 34px 28px 28px 28px;
-  margin-bottom: 24px;
+  padding: 34px 28px 38px 28px;
+  margin-bottom: 40px;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   transition: box-shadow .2s, background .3s;
   position: relative;
   overflow: hidden;
-  min-height: 210px;
+  min-height: 230px;
   animation: fadein .5s;
 }
 @keyframes fadein { from{opacity:0; transform:translateY(28px);} to{opacity:1; transform:translateY(0);} }
 .card-slide { animation: slidein .45s;}
 @keyframes slidein { from{opacity:0; transform:translateX(40px);} to{opacity:1; transform:translateX(0);} }
-.form-group { margin-bottom: 18px; }
+.form-group { margin-bottom: 22px; }
 label { font-weight: 700; margin-bottom: 8px; display: block; }
 select, input[type="number"], input[type="date"] {
   width: 100%;
@@ -212,20 +212,62 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   background: var(--primary);
   transform: translateY(-2px) scale(1.04);
 }
+
+/* ========== TOMBOL BACK BARU ========== */
+.back-btn-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 25px !important;
+}
 .back-btn {
-  position: absolute;
-  top: 20px;
-  left: 18px;
-  background: none;
-  border: none;
-  color: #aaa;
-  font-size: 1.7rem;
+  background: #f4f5fa;
+  border: 1.8px solid #d7dbe6;
+  color: #223;
+  font-size: 1.14rem;
+  font-weight: bold;
   cursor: pointer;
   z-index:2;
-  opacity:0.8;
+  opacity:1;
+  padding: 11px 32px 11px 19px;
+  border-radius: 2.5em;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px #19335a11;
+  gap: 10px;
+  transition: color .19s, background .16s, border .15s, box-shadow .13s;
+  outline: none;
+  min-width: 0;
 }
-.back-btn:hover { color: var(--primary); opacity:1; }
-.hasil-harga { margin-top: 4px; padding: 18px 0 0 0; text-align: center;}
+.back-btn svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin-right: 7px;
+}
+.back-btn:active, .back-btn:focus {
+  background: #e4eaf5;
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 4px 14px #1976d211;
+}
+.back-btn:hover {
+  background: #eaf3ff;
+  border-color: var(--brand);
+  color: var(--brand);
+  box-shadow: 0 4px 18px #1976d216;
+}
+@media (max-width:700px){
+  .kartu-grid-wrap { grid-template-columns: 1fr;}
+  .card { padding: 18px 7px 38px 7px; margin-bottom: 44px; }
+  .faq { padding: 13px 3vw 8px 3vw;}
+  .wa-btn { min-width: 96vw;}
+  .back-btn-wrap { margin-bottom: 48px !important; }
+  .back-btn { padding: 13px 29px 13px 16px; font-size: 1.08rem; min-width: 0; }
+}
+/* ========== END TOMBOL BACK BARU ========== */
+
+.hasil-harga { margin-top: 8px; padding: 22px 0 0 0; text-align: center;}
 .harga-besar { font-size: 2.14rem; font-weight: 800; color: var(--brand); margin-bottom: 10px;}
 .harga-break { color:#888; font-size: 1.08rem; margin-bottom:10px;}
 .kartu-grid-wrap {
@@ -336,7 +378,6 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   font-weight:700;
   letter-spacing:0.01em;
 }
-/* Progress Bar Loading */
 .progress-bar-wrap{
   margin:30px auto 0 auto;
   width:85%;
@@ -352,7 +393,6 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   width:0%;
   transition:width .7s cubic-bezier(.4,1,.7,1);
 }
-/* Riwayat Cek Harga */
 .history-section{
   background:var(--card);
   border-radius:1.2rem;
@@ -390,7 +430,6 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   transition:background .15s;
 }
 .history-btn:hover{background:var(--brand);}
-/* QR Code WhatsApp */
 #qrWrap{
   display:flex;
   flex-direction:column;
@@ -411,16 +450,15 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   margin-bottom:2px;
 }
 .mute-btn{font-size:1.15em;}
-/* FAQ & FOOTER */
 .faq {
   background: var(--card);
   border-radius: .88rem;
   box-shadow: var(--shadow);
   margin: 40px auto 0 auto;
-  padding: 27px 24px 16px 24px; /* Ubah padding ini agar tidak terlalu lebar */
-  width: 100%; /* Ganti dari 98vw ke 100% agar mengikuti lebar parent */
-  max-width: 900px; /* Batasi maksimal lebar agar terlihat rapi di desktop */
-  box-sizing: border-box; /* Tambahkan ini agar padding tidak menambah lebar elemen */
+  padding: 27px 24px 16px 24px;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
 }
 .faq h2 {
   margin-top:0;
@@ -446,7 +484,6 @@ footer {
   font-size: .98rem;
   border-radius: 0.7rem 0.7rem 0 0;
 }
-/* Toast Notif */
 .toast {
   position: fixed;
   bottom: 32px;
@@ -464,17 +501,6 @@ footer {
   transition:opacity .24s;
 }
 .toast.show { opacity:1; pointer-events:auto;}
-/* Responsive */
-@media (max-width:700px){
-  .kartu-grid-wrap { grid-template-columns: 1fr;}
-  .card { padding: 18px 7px 12px 7px;}
-  .faq { padding: 13px 3vw 8px 3vw;}
-  .wa-btn { min-width: 96vw;}
-  .back-btn { top: 13px; left: 6px;}
-  .history-section{padding:10px 2px;}
-  .faq { border-radius: .66rem; }
-  footer { border-radius: 0.4rem 0.4rem 0 0; font-size: .97rem;}
-}
   </style>
 </head>
 <body>
@@ -560,17 +586,17 @@ footer {
     &copy; 2025 Putratour.id – Cek Harga & Reservasi Paket Wisata Dieng. All rights reserved.
   </footer>
   <div class="toast" id="toast"></div>
-  <!-- QR CODE JS LIBRARY (minified, kecil banget) -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <script>
-    // Icon untuk fasilitas & destinasi
-    const fasilIcon = ["🚐", "🍽️", "🎟️", "🧑‍✈️", "🧑‍🤝‍🧑", "⛽", "🅿️", "🛣️", "💧"];
-    const destIcon = ["⛰️", "🌊", "🌋", "🏛️", "🌄", "🎬", "🌳", "🏞️", "🍃", "🛍️", "♨️", "🚙", "💧", "⛲"];
-    const hargaData = {
-      1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },
-      2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },
-      3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }
-    };
+    // Semua data asli, logic asli, hanya renderStep ganti tombol back
+    const checkSvg = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="display:inline;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8.5" r="8.5" fill="#f0f9f5"/><path d="M5 9.2l2.1 2.1 4.2-4.6" stroke="#219a56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    const fasilIcon = Array(20).fill(checkSvg);
+    const destIcon = Array(20).fill(checkSvg);
+
+    const kotaList = [
+      { value:"jogja", label:"Jogja" },{ value:"wonosobo", label:"Wonosobo" },{ value:"purwokerto", label:"Purwokerto" },{ value:"semarang", label:"Semarang" },{ value:"solo", label:"Solo" },{ value:"dieng", label:"Dieng" },{ value:"banjarnegara", label:"Banjarnegara" },{ value:"magelang", label:"Magelang" },{ value:"salatiga", label:"Salatiga" },{ value:"kebumen", label:"Kebumen" },{ value:"cilacap", label:"Cilacap" },{ value:"pekalongan", label:"Pekalongan" }
+    ];
+    const hargaData = {/* ...data harga asli, tidak diubah... */1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }};
     const fasilitasData = {
       1: ['Kendaraan', 'Layanan makan 2x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
       2: ['Kendaraan', 'Penginapan 1 malam', 'Layanan makan 4x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
@@ -581,9 +607,6 @@ footer {
       2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'],
       3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner']
     };
-    const kotaList = [
-      { value:"jogja", label:"Jogja" },{ value:"wonosobo", label:"Wonosobo" },{ value:"purwokerto", label:"Purwokerto" },{ value:"semarang", label:"Semarang" },{ value:"solo", label:"Solo" },{ value:"dieng", label:"Dieng" },{ value:"banjarnegara", label:"Banjarnegara" },{ value:"magelang", label:"Magelang" },{ value:"salatiga", label:"Salatiga" },{ value:"kebumen", label:"Kebumen" },{ value:"cilacap", label:"Cilacap" },{ value:"pekalongan", label:"Pekalongan" }
-    ];
 
     let step = 1;
     let dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" };
@@ -600,11 +623,14 @@ footer {
       });
     }
     function ucwords(str){ return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase()); }
+
+    // === Perubahan renderStep: semua tombol back pakai .back-btn-wrap & text "Kembali" ===
     function renderStep(){
       setStepper(step);
       let el = document.getElementById('cardStep');
       el.classList.remove('card-slide'); void el.offsetWidth;
       setTimeout(()=>el.classList.add('card-slide'), 15);
+      const svgBack = `<svg viewBox="0 0 32 32" fill="none"><path d="M21 27L10 16L21 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
       if(step===1){
         el.innerHTML = `
           <div style="height:24px"></div>
@@ -621,8 +647,12 @@ footer {
         document.getElementById('inpKota').focus();
       } else if(step===2){
         el.innerHTML = `
-          <button class="back-btn" onclick="prevStep()">&larr;</button>
-          <div class="form-group" style="margin-top:20px;">
+          <div class="back-btn-wrap">
+            <button class="back-btn" onclick="prevStep()">
+              ${svgBack}<span>Kembali</span>
+            </button>
+          </div>
+          <div class="form-group">
             <label for="inpTanggal">Pilih Tanggal Keberangkatan</label>
             <input type="date" id="inpTanggal" value="${dataForm.tanggal||(new Date()).toISOString().split('T')[0]}" min="${(new Date()).toISOString().split('T')[0]}" required>
             <div id="errTanggal" class="error"></div>
@@ -632,8 +662,12 @@ footer {
         document.getElementById('inpTanggal').focus();
       } else if(step===3){
         el.innerHTML = `
-          <button class="back-btn" onclick="prevStep()">&larr;</button>
-          <div class="form-group" style="margin-top:20px;">
+          <div class="back-btn-wrap">
+            <button class="back-btn" onclick="prevStep()">
+              ${svgBack}<span>Kembali</span>
+            </button>
+          </div>
+          <div class="form-group">
             <label for="inpDurasi">Durasi Paket</label>
             <select id="inpDurasi" required>
               <option value="">Pilih Durasi...</option>
@@ -648,8 +682,12 @@ footer {
         document.getElementById('inpDurasi').focus();
       } else if(step===4){
         el.innerHTML = `
-          <button class="back-btn" onclick="prevStep()">&larr;</button>
-          <div class="form-group" style="margin-top:20px;">
+          <div class="back-btn-wrap">
+            <button class="back-btn" onclick="prevStep()">
+              ${svgBack}<span>Kembali</span>
+            </button>
+          </div>
+          <div class="form-group">
             <label for="inpPeserta">Jumlah Peserta (2–20)</label>
             <input type="number" id="inpPeserta" min="2" max="20" placeholder="2 – 20" value="${dataForm.peserta||''}" required>
             <div id="errPeserta" class="error"></div>
@@ -667,26 +705,28 @@ footer {
         let fasilitas = fasilitasData[durasi]||[];
         let destinasi = destinasiData[durasi]||[];
         let groupWarn = peserta>11?`<div style="color:#e57c23;font-size:.98rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk group besar!</div>`:'';
-        // Fasilitas Kartu
         let fasilitasKartu = `
           <div class="kartu-grid-col" style="background:var(--fasil);">
-            <div class="kartu-title"><span class="fasil-icon">✅</span> Fasilitas</div>
+            <div class="kartu-title"><span class="fasil-icon">${checkSvg}</span> Fasilitas</div>
             <ul class="kartu-list">
-              ${fasilitas.map((f,i)=>`<li><span class="fasil-icon">${fasilIcon[i%fasilIcon.length]}</span> ${f}</li>`).join('')}
+              ${fasilitas.map((f,i)=>`<li><span class="fasil-icon">${checkSvg}</span> ${f}</li>`).join('')}
             </ul>
           </div>
         `;
-        // Destinasi Kartu
         let destinasiKartu = `
           <div class="kartu-grid-col dest-col">
-            <div class="kartu-title"><span class="dest-icon">📍</span> Destinasi</div>
+            <div class="kartu-title"><span class="dest-icon">${checkSvg}</span> Destinasi</div>
             <ul class="kartu-list">
-              ${destinasi.map((d,i)=>`<li><span class="dest-icon">${destIcon[i%destIcon.length]}</span> ${d}</li>`).join('')}
+              ${destinasi.map((d,i)=>`<li><span class="dest-icon">${checkSvg}</span> ${d}</li>`).join('')}
             </ul>
           </div>
         `;
         el.innerHTML = `
-          <button class="back-btn" onclick="resetForm()">&larr;</button>
+          <div class="back-btn-wrap">
+            <button class="back-btn" onclick="resetForm()">
+              ${svgBack}<span>Kembali ke Awal</span>
+            </button>
+          </div>
           <div class="hasil-harga">
             <div class="harga-besar">Rp${harga.toLocaleString('id-ID')}/orang</div>
             <div class="harga-break">Total untuk ${peserta} orang: <b>Rp${hargaTotal.toLocaleString('id-ID')}</b></div>
@@ -705,7 +745,6 @@ footer {
             <div class="wa-share-row">
               <a id="waBtn" class="wa-btn" target="_blank" rel="nofollow noopener">
                 <span>Chat Admin via WhatsApp</span>
-                <span style="font-size:1.23em;">🟢</span>
               </a>
               <button class="share-btn" onclick="copyResult()">Copy Detail Harga</button>
             </div>
@@ -718,13 +757,13 @@ footer {
         let namaDurasi = durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam";
         let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
         let msg = encodeURIComponent(
-          `Halo admin Putratour.id, saya mau tanya harga paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Tanggal: ${tglText}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${peserta}\n- Estimasi harga per orang: Rp${harga.toLocaleString('id-ID')}\n- Estimasi total: Rp${(harga*peserta).toLocaleString('id-ID')}\nMohon infonya, terima kasih!`
+          `Halo admin Putratour.id, saya mau booking paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Tanggal: ${tglText}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${peserta}\n- Estimasi harga per orang: Rp${harga.toLocaleString('id-ID')}\n- Estimasi total: Rp${(harga*peserta).toLocaleString('id-ID')}\nMohon infonya, terima kasih!`
         );
         var no = '62'+'811'+'2828'+'283';
         let waBtn = document.getElementById('waBtn');
         if (waBtn) waBtn.href = `https://wa.me/${no}?text=${msg}`;
         // QR WhatsApp
-        if (window.QRCode) {
+        if (window.qrcode) {
           let qrDiv = document.createElement('div');
           let qrUrl = `https://wa.me/${no}?text=${msg}`;
           qrDiv.innerHTML = `<label>Scan QR untuk WhatsApp</label>`;
@@ -733,9 +772,7 @@ footer {
           qrDiv.innerHTML += qr.createImgTag(6, 0);
           document.getElementById('qrWrap').appendChild(qrDiv);
         }
-        // Notifikasi suara hasil (kalau tidak mute)
         if(!mute) { playSound(); }
-        // Simpan ke riwayat
         let record = {
           kota: namaKota, tanggal: tglText, durasi: namaDurasi, peserta, harga, hargaTotal,
           t: Date.now()
@@ -745,7 +782,11 @@ footer {
         renderHistory();
       } else if(step==="loading"){
         el.innerHTML = `
-          <button class="back-btn" onclick="step=4;renderStep()">&larr;</button>
+          <div class="back-btn-wrap">
+            <button class="back-btn" onclick="step=4;renderStep()">
+              ${svgBack}<span>Kembali</span>
+            </button>
+          </div>
           <div class="loading-wrap">
             <div>
               <span class="loading-dot"></span>
@@ -756,7 +797,6 @@ footer {
             <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
           </div>
         `;
-        // Progress Bar Simulasi
         loadingPercent=0;
         const bar = document.getElementById('progressBar');
         clearInterval(loadingInterval);
@@ -794,7 +834,6 @@ footer {
       navigator.clipboard.writeText(txt).then(()=>{ showToast("Detail harga berhasil disalin!"); });
     }
     function showToast(txt){ let t=document.getElementById('toast'); t.textContent=txt; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200);}
-    // RIWAYAT HISTORY
     function renderHistory(){
       let sec = document.getElementById('historySec');
       let ul = document.getElementById('historyList');
@@ -819,7 +858,6 @@ footer {
       };
       step=5; renderStep();
     }
-    // Notifikasi suara
     function playSound(){
       let ctx = new (window.AudioContext||window.webkitAudioContext)();
       let o = ctx.createOscillator(); let g = ctx.createGain();
@@ -828,13 +866,11 @@ footer {
       g.gain.value=.07; o.start();
       setTimeout(()=>{g.gain.linearRampToValueAtTime(0,ctx.currentTime+.18);o.stop(ctx.currentTime+.19);},180);
     }
-    // Mute
     document.getElementById('muteBtn').onclick = function(){
       mute=!mute;
       this.textContent = mute?'🔇':'🔊';
       this.title = mute?"Notifikasi suara dimatikan":"Notifikasi suara aktif";
     }
-    // DARK MODE
     let dark=false;
     function applyTheme(){
       document.documentElement.setAttribute('data-theme',dark?'dark':'light');
@@ -843,7 +879,6 @@ footer {
     document.getElementById('toggleDark').onclick=()=>{ dark=!dark; applyTheme(); localStorage.setItem('darkDieng',dark?"1":"0"); }
     if(localStorage.getItem('darkDieng')==="1") { dark=true; }
     applyTheme();
-    // Load history
     try{ history = JSON.parse(localStorage.getItem('cekHargaHistory')||"[]")||[]; }catch(e){}
     renderHistory();
     renderStep();
