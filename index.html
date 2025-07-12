@@ -3,357 +3,530 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cek Harga Otomatis Paket Wisata Dieng | Putratour.id</title>
+  <title>Cek Harga Paket Wisata Dieng Otomatis | Putratour.id</title>
   <meta name="description" content="Cek harga otomatis paket wisata Dieng dari berbagai kota, durasi, dan peserta. Sistem interaktif, info real-time, lengkap fasilitas, destinasi, & booking mudah. Powered by Putratour.id.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <style>
-    /* ...CSS tetap, tidak diubah... */
-    :root {
-      --brand: #6a1b9a;
-      --primary: #1976d2;
-      --accent: #ffb300;
-      --bg: #f5f7fa;
-      --card: #fff;
-      --text: #1a2740;
-      --radius: 1.9rem;
-      --shadow: 0 6px 32px #19335a19;
-      --shadow-lg: 0 8px 40px #6a1b9a24;
-    }
-    body {
-      font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: var(--brand);
-      color: #fff;
-      padding: 1.1rem 0;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0; z-index: 10;
-    }
-    .header-wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 0 24px;
-      justify-content: space-between;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .brand-logo {
-      width: 38px; height: 38px; background: #fff2; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .brand-logo svg { width: 29px; height: 29px; }
-    .brand-title {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-    }
-    .header-menu {
-      display: flex; gap: 16px; align-items: center;
-    }
-    .header-menu a {
-      color: #fff;
-      font-size: 1.07rem;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 7px 18px;
-      border-radius: 1.3rem;
-      transition: background .17s;
-    }
-    .header-menu a:hover, .header-menu a:focus {
-      background: #fff2;
-      color: #ffd600;
-    }
-    main {
-      flex: 1;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 36px 18px 16px 18px;
-    }
-    h1 {
-      font-size: 2.3rem;
-      margin-bottom: 8px;
-      color: var(--brand);
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-    h2 {
-      color: var(--primary);
-      margin-top: 36px;
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    h3 { font-size: 1.1rem; margin-top: 28px; color: var(--brand); font-weight: 700; }
-    .desc {
-      max-width: 650px;
-      color: #294;
-      margin-bottom: 36px;
-      font-size: 1.11rem;
-    }
-    .program-desc {
-      background: #fffbeb;
-      border: 1px solid #ffe082;
-      padding: 18px 22px 12px 22px;
-      border-radius: 1.1rem;
-      color: #5b3b07;
-      margin-bottom: 28px;
-      font-size: 1.06rem;
-      box-shadow: 0 2px 14px #ffd6000b;
-    }
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      padding: 32px 22px 28px 22px;
-      margin-bottom: 26px;
-      transition: box-shadow .2s;
-    }
-    .card:focus-within,
-    .card:hover { box-shadow: 0 12px 50px #1976d219; }
-    form {
-      display: grid;
-      gap: 20px 20px;
-      grid-template-columns: 1fr 1fr;
-      max-width: 100%;
-      align-items: end;
-    }
-    form label { font-weight: 700; margin-bottom: 6px; display: block; }
-    form select, form input {
-      width: 100%; border: 1px solid #d0d5e3; border-radius: 1.2rem;
-      padding: 12px 15px; font-size: 1rem; background: #fafdff;
-      font-family: inherit; outline: none;
-      transition: border .15s;
-      box-sizing: border-box;
-      display: block;
-    }
-    form select:focus, form input:focus { border: 1.5px solid var(--primary);}
-    .btn {
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 13px 30px;
-      border-radius: 1.4rem;
-      font-weight: 800;
-      font-size: 1.09rem;
-      cursor: pointer;
-      transition: background .18s, transform .12s;
-      box-shadow: 0 2px 16px #6a1b9a13;
-      grid-column: span 2;
-      margin-top: 8px;
-    }
-    .btn:hover, .btn:focus { background: var(--primary); transform: translateY(-2px) scale(1.04);}
-    .hasil {
-      margin-top: 20px;
-      background: #fafdff;
-      border-radius: 1.3rem;
-      box-shadow: 0 2px 16px #6a1b9a14;
-      padding: 22px 18px;
-      color: #204466;
-      scroll-margin-top: 70px;
-    }
-    .hasil-title { font-size: 1.18rem; font-weight: 700; color: var(--primary); margin-bottom: 12px;}
-    .harga-besar { font-size: 2.1rem; font-weight: 800; color: var(--brand); margin-bottom: 7px;}
-    .list-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px 32px;
-      margin: 24px 0 0 0;
-    }
-    .list-col {
-      min-width: 220px;
-      flex: 1;
-      background: #f7fafd;
-      padding: 16px 15px 15px 22px;
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 16px #6a1b9a0b;
-    }
-    .list-col h4 {
-      font-size: 1.01rem;
-      color: var(--brand);
-      margin: 0 0 7px 0;
-      font-weight: 700;
-    }
-    ul { margin: 0; padding-left: 22px;}
-    li { margin-bottom: 4px; font-size: 1rem;}
-    /* Tombol WhatsApp */
-    .wa-btn {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(90deg,#25D366,#128C7E);
-      color: #fff;
-      border: none;
-      font-weight: 800;
-      font-size: 1.1rem;
-      padding: 13px 28px 13px 28px;
-      border-radius: 1.5rem;
-      margin: 34px auto 0 auto;
-      box-shadow: 0 2px 16px #128C7E13;
-      cursor: pointer;
-      transition: background .19s, transform .12s;
-      text-decoration: none;
-      outline: none;
-      position: relative;
-      z-index: 2;
-      min-width: 260px;
-      max-width: 99vw;
-      text-align: center;
-    }
-    .wa-btn:hover, .wa-btn:focus { background: #128C7E; transform: scale(1.03);}
-    /* FAQ */
-    .faq {
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin: 36px 0;
-      padding: 32px 18px 24px 18px;
-      max-width: 750px;
-    }
-    details { margin-bottom: 20px; }
-    summary {
-      font-weight: 700;
-      font-size: 1.06rem;
-      color: var(--primary);
-      cursor: pointer;
-      outline: none;
-      padding: 4px 0;
-      transition: color .2s;
-    }
-    details[open] summary { color: var(--brand);}
-    .faq p, .faq li { color: #264465; }
-    /* Footer */
-    footer {
-      margin-top: auto;
-      background: var(--brand);
-      color: #fff;
-      padding: 18px 0 15px 0;
-      text-align: center;
-      letter-spacing: 0.04em;
-      font-size: 1rem;
-      border-radius: 2rem 2rem 0 0;
-    }
-    @media (max-width:600px){
-      .header-wrap, main { padding-left:10px; padding-right:10px;}
-      h1 { font-size: 1.5rem;}
-      .desc { font-size: 1rem;}
-      .card { padding: 20px 8px;}
-      .faq { padding: 20px 6px 12px 6px;}
-      form { grid-template-columns: 1fr; }
-      .btn { grid-column: span 1;}
-      .list-col { padding: 14px 6px 9px 12px;}
-      form select, form input { width: 100%; min-width: 0;}
-      .wa-btn { min-width: 90%; }
-    }
+:root {
+  --brand: #6a1b9a;
+  --primary: #1976d2;
+  --accent: #ffb300;
+  --bg: #f5f7fa;
+  --card: #fff;
+  --text: #1a2740;
+  --radius: 1.7rem;
+  --shadow: 0 6px 32px #19335a13;
+  --shadow-lg: 0 10px 40px #6a1b9a24;
+  --fasil: #e3f2fd;
+  --dest: #fff8e1;
+}
+[data-theme=dark] {
+  --brand: #39215b;
+  --primary: #82b1ff;
+  --accent: #ffd54f;
+  --bg: #1a202c;
+  --card: #232838;
+  --text: #e5e8f2;
+  --shadow: 0 6px 32px #0004;
+  --shadow-lg: 0 10px 40px #22104444;
+  --fasil: #25374a;
+  --dest: #312a1a;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background .3s, color .3s;
+}
+header {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 11;
+}
+.header-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 18px;
+  justify-content: space-between;
+}
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  background: #fff2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-logo svg {
+  width: 27px;
+  height: 27px;
+}
+.brand-title {
+  font-size: 1.27rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.dark-toggle, .mute-btn {
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-left: 6px;
+}
+.desc {
+  text-align: center;
+  max-width: 670px;
+  margin: 0 auto 18px;
+  color: #294;
+  font-size: 1.13rem;
+}
+.program-desc {
+  margin: 0 auto 26px auto;
+  max-width: 600px;
+  background: #fffbeb;
+  border: 1px solid #ffe082;
+  border-radius: 1.1rem;
+  padding: 18px 22px 12px 22px;
+  color: #5b3b07;
+  font-size: 1.06rem;
+  box-shadow: 0 2px 14px #ffd6000b;
+}
+.stepper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0 36px 0;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  font-size: 1.12rem;
+  font-weight: bold;
+  transition: background .22s;
+}
+.step.active .step-circle {
+  background: var(--primary);
+}
+.step.complete .step-circle {
+  background: #43a047;
+}
+.step-label {
+  color: #939ca9;
+  transition: color .2s;
+}
+.step.active .step-label, .step.complete .step-label {
+  color: var(--primary);
+}
+.step.complete .step-label {
+  color: #43a047;
+}
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 34px 28px 28px 28px;
+  margin-bottom: 24px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: box-shadow .2s, background .3s;
+  position: relative;
+  overflow: hidden;
+  min-height: 210px;
+  animation: fadein .5s;
+}
+@keyframes fadein { from{opacity:0; transform:translateY(28px);} to{opacity:1; transform:translateY(0);} }
+.card-slide { animation: slidein .45s;}
+@keyframes slidein { from{opacity:0; transform:translateX(40px);} to{opacity:1; transform:translateX(0);} }
+.form-group { margin-bottom: 18px; }
+label { font-weight: 700; margin-bottom: 8px; display: block; }
+select, input[type="number"], input[type="date"] {
+  width: 100%;
+  border: 1.3px solid #d0d5e3;
+  border-radius: 1.2rem;
+  padding: 12px 16px;
+  font-size: 1.06rem;
+  background: #fafdff;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 3px;
+  color: var(--text);
+  transition: border .15s, background .2s;
+}
+[data-theme=dark] select,
+[data-theme=dark] input[type="number"],
+[data-theme=dark] input[type="date"] {
+  background: #282c36;
+  color: var(--text);
+  border-color: #393cae;
+}
+select:focus, input:focus { border: 1.7px solid var(--primary);}
+.error { color: #e05747; font-size: 0.99rem; margin: 3px 0 0 1px;}
+.btn-main {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 1.5rem;
+  font-weight: 800;
+  font-size: 1.11rem;
+  cursor: pointer;
+  transition: background .18s, transform .12s;
+  box-shadow: 0 2px 16px #6a1b9a13;
+  margin-top: 18px;
+  display: block;
+  width: 100%;
+}
+.btn-main[disabled] { opacity:0.7; cursor: not-allowed;}
+.btn-main:hover, .btn-main:focus {
+  background: var(--primary);
+  transform: translateY(-2px) scale(1.04);
+}
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 18px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index:2;
+  opacity:0.8;
+}
+.back-btn:hover { color: var(--primary); opacity:1; }
+.hasil-harga { margin-top: 4px; padding: 18px 0 0 0; text-align: center;}
+.harga-besar { font-size: 2.14rem; font-weight: 800; color: var(--brand); margin-bottom: 10px;}
+.harga-break { color:#888; font-size: 1.08rem; margin-bottom:10px;}
+.kartu-grid-wrap {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr 1fr;
+  margin: 25px 0 12px 0;
+}
+.kartu-grid-col {
+  background: var(--fasil);
+  color: #1a2740;
+  border-radius: 1.1rem;
+  box-shadow:0 2px 14px #1976d215;
+  padding: 17px 11px 14px 13px;
+  font-size: 1.09rem;
+  min-width: 0;
+  animation: fadein .45s;
+}
+.kartu-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: bold;
+  font-size:1.12rem;
+  margin-bottom:7px;
+}
+.kartu-list { margin: 0; padding: 0; list-style: none; }
+.kartu-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 0;
+  border-radius: .5rem;
+  font-size: 1.07rem;
+}
+.dest-col { background: var(--dest);}
+.fasil-icon { font-size:1.17em;}
+.dest-icon { font-size:1.13em;}
+.wa-share-row {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px;
+}
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg,#25D366,#128C7E);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.09rem;
+  padding: 13px 24px 13px 26px;
+  border-radius: 1.6rem;
+  min-width: 240px;
+  box-shadow: 0 2px 16px #128C7E13;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  border:none;
+  transition: background .16s, transform .12s;
+  text-align: center;
+  gap:10px;
+}
+.wa-btn:hover, .wa-btn:focus { background: #128C7E; transform: scale(1.04);}
+.share-btn {
+  background: var(--primary);
+  color: #fff;
+  font-weight:700;
+  border:none;
+  padding:9px 18px;
+  border-radius:1.1rem;
+  font-size:1.04rem;
+  margin-top:4px;
+  cursor:pointer;
+  box-shadow:0 2px 16px #1976d217;
+  transition: background .17s;
+}
+.share-btn:active { background: var(--brand);}
+.loading-wrap {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  min-height: 230px;
+  width:100%;
+  animation: fadein .6s;
+}
+.loading-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: bounce .9s infinite alternate;
+}
+.loading-dot:nth-child(2) { animation-delay: .15s;}
+.loading-dot:nth-child(3) { animation-delay: .32s;}
+@keyframes bounce { to{ transform: translateY(-9px); opacity: 0.7;} }
+.loading-text {
+  margin-top: 24px;
+  color: var(--brand);
+  font-size:1.12rem;
+  font-weight:700;
+  letter-spacing:0.01em;
+}
+/* Progress Bar Loading */
+.progress-bar-wrap{
+  margin:30px auto 0 auto;
+  width:85%;
+  max-width:390px;
+  height:8px;
+  background:#e0e4ee;
+  border-radius:8px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  width:0%;
+  transition:width .7s cubic-bezier(.4,1,.7,1);
+}
+/* Riwayat Cek Harga */
+.history-section{
+  background:var(--card);
+  border-radius:1.2rem;
+  box-shadow:var(--shadow);
+  max-width:540px;
+  margin:38px auto 20px auto;
+  padding:16px 13px;
+}
+.history-title{
+  font-size:1.09rem;
+  font-weight:700;
+  margin-bottom:8px;
+  color:var(--brand);
+}
+.history-list{margin:0;padding:0;list-style:none;}
+.history-list li{
+  margin:0 0 10px 0;
+  padding:9px 12px;
+  border-radius:.9rem;
+  background:var(--fasil);
+  font-size:.98rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.history-btn{
+  background:var(--primary);
+  color:#fff;
+  padding:3px 13px;
+  font-size:.97rem;
+  border:none;
+  border-radius:.8rem;
+  cursor:pointer;
+  margin-left:6px;
+  transition:background .15s;
+}
+.history-btn:hover{background:var(--brand);}
+/* QR Code WhatsApp */
+#qrWrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-top:15px;
+}
+#qrWrap canvas{
+  background:#fff;
+  border-radius:1rem;
+  padding:8px;
+  margin-bottom:7px;
+  box-shadow:0 2px 14px #1976d210;
+}
+#qrWrap label{
+  font-size:.98rem;
+  color:#222;
+  margin-bottom:2px;
+}
+.mute-btn{font-size:1.15em;}
+/* FAQ & FOOTER */
+.faq {
+  background: var(--card);
+  border-radius: .88rem;
+  box-shadow: var(--shadow);
+  margin: 40px auto 0 auto;
+  padding: 27px 6vw 16px 6vw;
+  width: 98vw;
+  max-width: 99vw;
+}
+.faq h2 {
+  margin-top:0;
+  font-size: 1.09rem;
+}
+details {
+  margin-bottom: 18px;
+}
+summary {
+  font-weight: 700;
+  font-size: 1.06rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+details[open] summary { color: var(--brand);}
+.faq p, .faq li { color: #264465;}
+footer {
+  margin-top: auto;
+  background: var(--brand);
+  color: #fff;
+  padding: 13px 0 10px 0;
+  text-align: center;
+  font-size: .98rem;
+  border-radius: 0.7rem 0.7rem 0 0;
+}
+/* Toast Notif */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left:50%;
+  transform:translateX(-50%);
+  background: var(--primary);
+  color: #fff;
+  border-radius:1.1rem;
+  padding:12px 28px;
+  font-size:1.07rem;
+  box-shadow:0 8px 32px #19335a25;
+  z-index:9999;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .24s;
+}
+.toast.show { opacity:1; pointer-events:auto;}
+/* Responsive */
+@media (max-width:700px){
+  .kartu-grid-wrap { grid-template-columns: 1fr;}
+  .card { padding: 18px 7px 12px 7px;}
+  .faq { padding: 13px 3vw 8px 3vw;}
+  .wa-btn { min-width: 96vw;}
+  .back-btn { top: 13px; left: 6px;}
+  .history-section{padding:10px 2px;}
+  .faq { border-radius: .66rem; }
+  footer { border-radius: 0.4rem 0.4rem 0 0; font-size: .97rem;}
+}
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="header-wrap">
-      <div class="header-left">
-        <div class="brand-logo">
-          <svg fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#fff" fill-opacity="0.15"/><path d="M8 28L18 15L24 23L29 18L35 28H8Z" fill="#ffd600"/><circle cx="18" cy="16" r="1.5" fill="#6a1b9a"/></svg>
-        </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="brand-logo">
+          <svg fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#fff" fill-opacity="0.17"/><path d="M8 28L18 15L24 23L29 18L35 28H8Z" fill="#ffd600"/><circle cx="18" cy="16" r="1.5" fill="#6a1b9a"/></svg>
+        </span>
         <span class="brand-title">Putratour.id</span>
       </div>
-      <nav class="header-menu">
-        <a href="https://instagram.com/putratourdieng" target="_blank" rel="nofollow noopener">Instagram</a>
-      </nav>
+      <div>
+        <button class="dark-toggle" id="toggleDark" title="Mode gelap/terang">🌗</button>
+        <button class="mute-btn" id="muteBtn" title="Mute/unmute notifikasi suara">🔊</button>
+      </div>
     </div>
   </header>
   <main>
-    <h1>Cek Harga Paket Wisata Dieng Otomatis</h1>
+    <h1 style="text-align:center;font-size:2.11rem;color:var(--brand);font-weight:900;letter-spacing:-1.5px;">
+      Cek Harga Paket Wisata Dieng Otomatis <span style="display:inline-block;transform:rotate(-10deg);font-size:1.5rem;">✨</span>
+    </h1>
     <div class="desc">
-      <b>Pertama di Dieng!</b> Dapatkan estimasi harga <b>paket wisata Dieng</b> secara <b>otomatis & interaktif</b> tanpa harus menunggu admin.
+      <b>Pertama di Dieng!</b>
+      Dapatkan estimasi harga <b>paket wisata Dieng</b> secara <b>otomatis & interaktif</b> tanpa harus menunggu admin.
       Pilih kota keberangkatan, durasi paket, dan jumlah peserta, sistem kami langsung menampilkan biaya terbaru, fasilitas, dan destinasi lengkap.
       <br><br>
       <b>Transparan, cepat, dan data valid setiap hari.</b> Solusi praktis untuk keluarga, rombongan, maupun kantor.
     </div>
     <div class="program-desc">
-      <b>Apa itu fitur cek harga otomatis?</b> <br>
-      Halaman ini adalah program aplikasi web khusus dari Putratour.id yang membantu Anda cek biaya paket wisata Dieng secara mandiri dan real-time.  
+      <b>Apa itu fitur cek harga otomatis?</b><br>
+      Halaman ini adalah program aplikasi web khusus dari Putratour.id yang membantu Anda cek biaya paket wisata Dieng secara mandiri dan real-time.
       Estimasi langsung, tanpa harus menunggu penawaran via chat. Cocok untuk semua jenis pemesan!
     </div>
-    <div class="card">
-      <form id="formCekHarga" autocomplete="off">
-        <div>
-          <label for="kota">Kota Keberangkatan</label>
-          <select id="kota" required>
-            <option value="">Pilih Kota...</option>
-            <option value="jogja">Jogja</option>
-            <option value="wonosobo">Wonosobo</option>
-            <option value="purwokerto">Purwokerto</option>
-            <option value="semarang">Semarang</option>
-            <option value="solo">Solo</option>
-            <option value="dieng">Dieng</option>
-            <option value="banjarnegara">Banjarnegara</option>
-            <option value="magelang">Magelang</option>
-            <option value="salatiga">Salatiga</option>
-            <option value="kebumen">Kebumen</option>
-            <option value="cilacap">Cilacap</option>
-            <option value="pekalongan">Pekalongan</option>
-          </select>
-        </div>
-        <div>
-          <label for="durasi">Durasi Paket</label>
-          <select id="durasi" required>
-            <option value="">Pilih Durasi...</option>
-            <option value="1">1 Hari</option>
-            <option value="2">2 Hari 1 Malam</option>
-            <option value="3">3 Hari 2 Malam</option>
-          </select>
-        </div>
-        <div>
-          <label for="peserta">Jumlah Peserta</label>
-          <input type="number" id="peserta" min="2" max="20" placeholder="min. 2 – max. 20" required>
-        </div>
-        <button class="btn" type="submit">Cek Harga</button>
-      </form>
-      <div class="hasil" id="hasilCek" style="display:none"></div>
+    <!-- Stepper dan Card -->
+    <div class="stepper" id="stepper">
+      <div class="step active" data-step="1"><div class="step-circle">1</div><div class="step-label">Kota</div></div>
+      <div class="step" data-step="2"><div class="step-circle">2</div><div class="step-label">Tanggal</div></div>
+      <div class="step" data-step="3"><div class="step-circle">3</div><div class="step-label">Durasi</div></div>
+      <div class="step" data-step="4"><div class="step-circle">4</div><div class="step-label">Peserta</div></div>
+      <div class="step" data-step="5"><div class="step-circle">✓</div><div class="step-label">Hasil</div></div>
     </div>
-
-    <h2>Fasilitas & Destinasi</h2>
-    <div class="list-wrap">
-      <div class="list-col">
-        <h4>Fasilitas Paket</h4>
-        <ul id="fasilitasList"></ul>
-      </div>
-      <div class="list-col">
-        <h4>Destinasi Wisata</h4>
-        <ul id="destinasiList"></ul>
-      </div>
+    <div class="card" id="cardStep"></div>
+    <!-- RIWAYAT CEK HARGA -->
+    <div class="history-section" id="historySec" style="display:none;">
+      <div class="history-title">Riwayat Cek Harga</div>
+      <ul class="history-list" id="historyList"></ul>
     </div>
-
-    <a id="waBtn"
-       class="wa-btn"
-       rel="nofollow noopener"
-       target="_blank"
-       href="#">
-      Mau nego harga? Hubungi admin via WhatsApp
-    </a>
-
     <section class="faq">
       <h2>FAQ: Informasi Paket Wisata Dieng</h2>
       <details>
         <summary>Apa keunggulan sistem cek harga ini?</summary>
         <p>
-          Sistem cek harga Putratour.id memberikan info <b>real</b> & transparan, update setiap saat. Anda bisa cek biaya dari berbagai kota, durasi, dan peserta tanpa perlu menunggu penawaran manual.
+          Sistem cek harga Putratour.id memberikan info <b>real & transparan</b>, update setiap saat. Anda bisa cek biaya dari berbagai kota, durasi, dan peserta tanpa perlu menunggu penawaran manual.
         </p>
       </details>
       <details>
@@ -385,8 +558,13 @@
   <footer>
     &copy; 2025 Putratour.id – Cek Harga & Reservasi Paket Wisata Dieng. All rights reserved.
   </footer>
+  <div class="toast" id="toast"></div>
+  <!-- QR CODE JS LIBRARY (minified, kecil banget) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <script>
-    // ==== DATA HARGA, FASILITAS, DESTINASI ====
+    // Icon untuk fasilitas & destinasi
+    const fasilIcon = ["🚐", "🍽️", "🎟️", "🧑‍✈️", "🧑‍🤝‍🧑", "⛽", "🅿️", "🛣️", "💧"];
+    const destIcon = ["⛰️", "🌊", "🌋", "🏛️", "🌄", "🎬", "🌳", "🏞️", "🍃", "🛍️", "♨️", "🚙", "💧", "⛲"];
     const hargaData = {
       1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },
       2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },
@@ -402,170 +580,281 @@
       2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'],
       3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner']
     };
+    const kotaList = [
+      { value:"jogja", label:"Jogja" },{ value:"wonosobo", label:"Wonosobo" },{ value:"purwokerto", label:"Purwokerto" },{ value:"semarang", label:"Semarang" },{ value:"solo", label:"Solo" },{ value:"dieng", label:"Dieng" },{ value:"banjarnegara", label:"Banjarnegara" },{ value:"magelang", label:"Magelang" },{ value:"salatiga", label:"Salatiga" },{ value:"kebumen", label:"Kebumen" },{ value:"cilacap", label:"Cilacap" },{ value:"pekalongan", label:"Pekalongan" }
+    ];
 
-    // ==== TAMPILKAN DATA FASILITAS & DESTINASI BERDASARKAN DURASI DEFAULT ====
-    const fasilitasList = document.getElementById('fasilitasList');
-    const destinasiList = document.getElementById('destinasiList');
-    document.getElementById('durasi').addEventListener('change', function(){
-      updateFasilitasDestinasi(this.value);
-    });
-    function updateFasilitasDestinasi(val) {
-      fasilitasList.innerHTML = '';
-      destinasiList.innerHTML = '';
-      let f = fasilitasData[val] || [];
-      let d = destinasiData[val] || [];
-      f.forEach(item => {
-        let li = document.createElement('li'); li.textContent = item; fasilitasList.appendChild(li);
-      });
-      d.forEach(item => {
-        let li = document.createElement('li'); li.textContent = item; destinasiList.appendChild(li);
+    let step = 1;
+    let dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" };
+    let mute = false;
+    let history = [];
+    let loadingPercent = 0;
+    let loadingInterval;
+
+    function setStepper(n){
+      const stepElems = document.querySelectorAll('.step');
+      stepElems.forEach((el,i)=>{
+        el.classList.toggle('active',i===(n-1));
+        el.classList.toggle('complete',i<(n-1));
       });
     }
-    // Default: kosong
-    updateFasilitasDestinasi('');
-
-    // ==== CEK HARGA & AUTO SCROLL ====
-    document.getElementById('formCekHarga').addEventListener('submit', function(e){
-      e.preventDefault();
-      let kota = document.getElementById('kota').value;
-      let durasi = document.getElementById('durasi').value;
-      let peserta = parseInt(document.getElementById('peserta').value);
-      const hasil = document.getElementById('hasilCek');
-      const waBtn = document.getElementById('waBtn');
-      // Validasi lengkap & wajib
-      if (!kota || !durasi || !peserta || peserta < 2 || peserta > 20) {
-        hasil.style.display = 'block';
-        hasil.innerHTML = "<span style='color:red'>Isi form dengan benar! Jumlah peserta 2–20.</span>";
-        hasil.scrollIntoView({behavior:'smooth', block:'center'});
-        waBtn.style.display = "none";
-        return;
+    function ucwords(str){ return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase()); }
+    function renderStep(){
+      setStepper(step);
+      let el = document.getElementById('cardStep');
+      el.classList.remove('card-slide'); void el.offsetWidth;
+      setTimeout(()=>el.classList.add('card-slide'), 15);
+      if(step===1){
+        el.innerHTML = `
+          <div style="height:24px"></div>
+          <div class="form-group">
+            <label for="inpKota">Kota Keberangkatan</label>
+            <select id="inpKota" required>
+              <option value="">Pilih Kota...</option>
+              ${kotaList.map(x=>`<option value="${x.value}"${dataForm.kota===x.value?' selected':''}>${x.label}</option>`).join('')}
+            </select>
+            <div id="errKota" class="error"></div>
+          </div>
+          <button class="btn-main" onclick="nextStepKota()">Lanjutkan</button>
+        `;
+        document.getElementById('inpKota').focus();
+      } else if(step===2){
+        el.innerHTML = `
+          <button class="back-btn" onclick="prevStep()">&larr;</button>
+          <div class="form-group" style="margin-top:20px;">
+            <label for="inpTanggal">Pilih Tanggal Keberangkatan</label>
+            <input type="date" id="inpTanggal" value="${dataForm.tanggal||(new Date()).toISOString().split('T')[0]}" min="${(new Date()).toISOString().split('T')[0]}" required>
+            <div id="errTanggal" class="error"></div>
+          </div>
+          <button class="btn-main" onclick="nextStepTanggal()">Lanjutkan</button>
+        `;
+        document.getElementById('inpTanggal').focus();
+      } else if(step===3){
+        el.innerHTML = `
+          <button class="back-btn" onclick="prevStep()">&larr;</button>
+          <div class="form-group" style="margin-top:20px;">
+            <label for="inpDurasi">Durasi Paket</label>
+            <select id="inpDurasi" required>
+              <option value="">Pilih Durasi...</option>
+              <option value="1"${dataForm.durasi=="1"?' selected':''}>1 Hari</option>
+              <option value="2"${dataForm.durasi=="2"?' selected':''}>2 Hari 1 Malam</option>
+              <option value="3"${dataForm.durasi=="3"?' selected':''}>3 Hari 2 Malam</option>
+            </select>
+            <div id="errDurasi" class="error"></div>
+          </div>
+          <button class="btn-main" onclick="nextStepDurasi()">Lanjutkan</button>
+        `;
+        document.getElementById('inpDurasi').focus();
+      } else if(step===4){
+        el.innerHTML = `
+          <button class="back-btn" onclick="prevStep()">&larr;</button>
+          <div class="form-group" style="margin-top:20px;">
+            <label for="inpPeserta">Jumlah Peserta (2–20)</label>
+            <input type="number" id="inpPeserta" min="2" max="20" placeholder="2 – 20" value="${dataForm.peserta||''}" required>
+            <div id="errPeserta" class="error"></div>
+          </div>
+          <button class="btn-main" onclick="showLoading()">Lihat Hasil</button>
+        `;
+        document.getElementById('inpPeserta').focus();
+      } else if(step===5){
+        let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
+        let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
+        let idx = peserta-2;
+        if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
+        let harga = hargaArray ? hargaArray[idx] : 0;
+        let hargaTotal = harga*peserta;
+        let fasilitas = fasilitasData[durasi]||[];
+        let destinasi = destinasiData[durasi]||[];
+        let groupWarn = peserta>11?`<div style="color:#e57c23;font-size:.98rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk group besar!</div>`:'';
+        // Fasilitas Kartu
+        let fasilitasKartu = `
+          <div class="kartu-grid-col" style="background:var(--fasil);">
+            <div class="kartu-title"><span class="fasil-icon">✅</span> Fasilitas</div>
+            <ul class="kartu-list">
+              ${fasilitas.map((f,i)=>`<li><span class="fasil-icon">${fasilIcon[i%fasilIcon.length]}</span> ${f}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+        // Destinasi Kartu
+        let destinasiKartu = `
+          <div class="kartu-grid-col dest-col">
+            <div class="kartu-title"><span class="dest-icon">📍</span> Destinasi</div>
+            <ul class="kartu-list">
+              ${destinasi.map((d,i)=>`<li><span class="dest-icon">${destIcon[i%destIcon.length]}</span> ${d}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+        el.innerHTML = `
+          <button class="back-btn" onclick="resetForm()">&larr;</button>
+          <div class="hasil-harga">
+            <div class="harga-besar">Rp${harga.toLocaleString('id-ID')}/orang</div>
+            <div class="harga-break">Total untuk ${peserta} orang: <b>Rp${hargaTotal.toLocaleString('id-ID')}</b></div>
+            <div style="margin-bottom:6px;">
+              <span style="background:var(--primary);color:#fff;padding:3px 10px 3px 8px;border-radius:.8rem;font-size:.97rem;">
+                ${ucwords(kota)}, ${tanggal ? new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"short",year:"numeric"}) : '-'} | ${peserta} peserta | ${durasi=='1'?'1 Hari':durasi=='2'?'2 Hari 1 Malam':'3 Hari 2 Malam'}
+              </span>
+            </div>
+            <div style="margin:10px 0 0 0;font-size:1.06rem;color:#295;">
+              Termasuk fasilitas, destinasi, makan, tiket masuk, tour guide. ${groupWarn}
+            </div>
+            <div class="kartu-grid-wrap">
+              ${fasilitasKartu}
+              ${destinasiKartu}
+            </div>
+            <div class="wa-share-row">
+              <a id="waBtn" class="wa-btn" target="_blank" rel="nofollow noopener">
+                <span>Chat Admin via WhatsApp</span>
+                <span style="font-size:1.23em;">🟢</span>
+              </a>
+              <button class="share-btn" onclick="copyResult()">Copy Detail Harga</button>
+            </div>
+            <div id="qrWrap"></div>
+            <button class="btn-main" style="margin-top:18px;" onclick="resetForm()">Cek Harga Lainnya</button>
+          </div>
+        `;
+        // WhatsApp & QR
+        let namaKota = ucwords(kota||'');
+        let namaDurasi = durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam";
+        let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
+        let msg = encodeURIComponent(
+          `Halo admin Putratour.id, saya mau tanya harga paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Tanggal: ${tglText}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${peserta}\n- Estimasi harga per orang: Rp${harga.toLocaleString('id-ID')}\n- Estimasi total: Rp${(harga*peserta).toLocaleString('id-ID')}\nMohon infonya, terima kasih!`
+        );
+        var no = '62'+'811'+'2828'+'283';
+        let waBtn = document.getElementById('waBtn');
+        if (waBtn) waBtn.href = `https://wa.me/${no}?text=${msg}`;
+        // QR WhatsApp
+        if (window.QRCode) {
+          let qrDiv = document.createElement('div');
+          let qrUrl = `https://wa.me/${no}?text=${msg}`;
+          qrDiv.innerHTML = `<label>Scan QR untuk WhatsApp</label>`;
+          let qr = window.qrcode(0, 'L');
+          qr.addData(qrUrl); qr.make();
+          qrDiv.innerHTML += qr.createImgTag(6, 0);
+          document.getElementById('qrWrap').appendChild(qrDiv);
+        }
+        // Notifikasi suara hasil (kalau tidak mute)
+        if(!mute) { playSound(); }
+        // Simpan ke riwayat
+        let record = {
+          kota: namaKota, tanggal: tglText, durasi: namaDurasi, peserta, harga, hargaTotal,
+          t: Date.now()
+        };
+        history.unshift(record); if(history.length>10) history.length=10;
+        localStorage.setItem('cekHargaHistory', JSON.stringify(history));
+        renderHistory();
+      } else if(step==="loading"){
+        el.innerHTML = `
+          <button class="back-btn" onclick="step=4;renderStep()">&larr;</button>
+          <div class="loading-wrap">
+            <div>
+              <span class="loading-dot"></span>
+              <span class="loading-dot"></span>
+              <span class="loading-dot"></span>
+            </div>
+            <div class="loading-text">Mencari harga terbaik untukmu…</div>
+            <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+          </div>
+        `;
+        // Progress Bar Simulasi
+        loadingPercent=0;
+        const bar = document.getElementById('progressBar');
+        clearInterval(loadingInterval);
+        loadingInterval = setInterval(function(){
+          loadingPercent += Math.random()*14+10;
+          if(loadingPercent>=100) loadingPercent=100;
+          bar.style.width = loadingPercent+'%';
+        }, 260);
       }
+    }
+    function nextStepKota(){ let v = document.getElementById('inpKota').value; if(!v) { document.getElementById('errKota').textContent="Pilih kota dulu"; return;} dataForm.kota = v; step=2; renderStep();}
+    function nextStepTanggal(){ let v = document.getElementById('inpTanggal').value; if(!v) { document.getElementById('errTanggal').textContent="Pilih tanggal dulu"; return;} dataForm.tanggal = v; step=3; renderStep();}
+    function nextStepDurasi(){ let v = document.getElementById('inpDurasi').value; if(!v) { document.getElementById('errDurasi').textContent="Pilih durasi dulu"; return;} dataForm.durasi = v; step=4; renderStep();}
+    function showLoading(){
+      let v = document.getElementById('inpPeserta').value;
+      if(!v || v<2 || v>20) { document.getElementById('errPeserta').textContent="Jumlah peserta 2–20"; return;}
+      dataForm.peserta = v;
+      step="loading"; renderStep();
+      setTimeout(()=>{
+        clearInterval(loadingInterval);
+        step=5;renderStep();
+      },1700);
+    }
+    function prevStep(){ step = Math.max(1,step-1); renderStep();}
+    function resetForm(){ step=1; dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" }; renderStep();}
+    function copyResult(){
+      let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
       let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
-      if (!hargaArray) {
-        hasil.style.display = 'block';
-        hasil.innerHTML = "<span style='color:red'>Data tidak ditemukan.</span>";
-        hasil.scrollIntoView({behavior:'smooth', block:'center'});
-        waBtn.style.display = "none";
-        return;
+      let idx = peserta-2;
+      if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
+      let harga = hargaArray ? hargaArray[idx] : 0;
+      let hargaTotal = harga*peserta;
+      let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
+      let txt = `Cek harga paket wisata Dieng:\nKota: ${ucwords(kota)}\nTanggal: ${tglText}\nDurasi: ${durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam"}\nPeserta: ${peserta}\nHarga per orang: Rp${harga.toLocaleString('id-ID')}\nTotal: Rp${hargaTotal.toLocaleString('id-ID')}\nPutratour.id`;
+      navigator.clipboard.writeText(txt).then(()=>{ showToast("Detail harga berhasil disalin!"); });
+    }
+    function showToast(txt){ let t=document.getElementById('toast'); t.textContent=txt; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200);}
+    // RIWAYAT HISTORY
+    function renderHistory(){
+      let sec = document.getElementById('historySec');
+      let ul = document.getElementById('historyList');
+      if(!history || history.length<1){ sec.style.display="none"; return; }
+      sec.style.display="block";
+      ul.innerHTML = history.map((h,i)=>`<li>
+        <span>
+          <b>${h.kota}</b> | ${h.durasi} | ${h.peserta} org <span style="color:#5a5a;">(${h.tanggal})</span>
+          <br><span style="color:var(--primary);font-weight:700">Rp${h.harga.toLocaleString('id-ID')}</span>
+        </span>
+        <button class="history-btn" onclick="reShow(${i})">Lihat</button>
+      </li>`).join('');
+    }
+    function reShow(i){
+      let h = history[i];
+      if(!h) return;
+      dataForm = {
+        kota: kotaList.find(x=>x.label===h.kota)?.value||"",
+        tanggal: h.tanggal&&h.tanggal!=="-"?new Date(h.tanggal).toISOString().split('T')[0]:"",
+        durasi: h.durasi.startsWith("1")?"1":h.durasi.startsWith("2")?"2":"3",
+        peserta: h.peserta
+      };
+      step=5; renderStep();
+    }
+    // Notifikasi suara
+    function playSound(){
+      let ctx = new (window.AudioContext||window.webkitAudioContext)();
+      let o = ctx.createOscillator(); let g = ctx.createGain();
+      o.type="triangle"; o.frequency.value=484;
+      o.connect(g); g.connect(ctx.destination);
+      g.gain.value=.07; o.start();
+      setTimeout(()=>{g.gain.linearRampToValueAtTime(0,ctx.currentTime+.18);o.stop(ctx.currentTime+.19);},180);
+    }
+    // Mute
+    document.getElementById('muteBtn').onclick = function(){
+      mute=!mute;
+      this.textContent = mute?'🔇':'🔊';
+      this.title = mute?"Notifikasi suara dimatikan":"Notifikasi suara aktif";
+    }
+    // DARK MODE
+    let dark=false;
+    function applyTheme(){
+      document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+      document.getElementById('toggleDark').textContent=dark?'☀️':'🌗';
+    }
+    document.getElementById('toggleDark').onclick=()=>{ dark=!dark; applyTheme(); localStorage.setItem('darkDieng',dark?"1":"0"); }
+    if(localStorage.getItem('darkDieng')==="1") { dark=true; }
+    applyTheme();
+    // Load history
+    try{ history = JSON.parse(localStorage.getItem('cekHargaHistory')||"[]")||[]; }catch(e){}
+    renderHistory();
+    renderStep();
+    document.addEventListener('keydown',function(e){
+      if(e.key==="Enter"){
+        let inp=document.activeElement;
+        if(step===1 && inp.id==="inpKota") nextStepKota();
+        else if(step===2 && inp.id==="inpTanggal") nextStepTanggal();
+        else if(step===3 && inp.id==="inpDurasi") nextStepDurasi();
+        else if(step===4 && inp.id==="inpPeserta") showLoading();
       }
-      let idx = peserta - 2;
-      if (idx < 0) idx = 0;
-      if (idx > hargaArray.length-1) idx = hargaArray.length-1;
-      let harga = hargaArray[idx];
-      let infoGroup = peserta > 11
-        ? `<div style="color:#e57c23;font-size:1rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk penawaran group spesial!</div>`
-        : '';
-      hasil.style.display = 'block';
-      hasil.innerHTML = `
-        <div class="hasil-title">Estimasi Harga Paket</div>
-        <div class="harga-besar">Rp${harga.toLocaleString('id-ID')}/orang</div>
-        <div>Keberangkatan dari <b>${ucwords(kota)}</b> • ${peserta} peserta • ${durasi == 1 ? "1 Hari" : durasi == 2 ? "2 Hari 1 Malam" : "3 Hari 2 Malam"}</div>
-        <div style="margin-top:12px;font-size:1rem; color:#295">
-          Sudah termasuk fasilitas, destinasi, makan, tiket masuk, dan tour guide.
-        </div>
-        ${infoGroup}
-      `;
-      // Auto-update fasilitas & destinasi sesuai durasi
-      updateFasilitasDestinasi(durasi);
-      // Scroll fokus ke hasil harga
-      setTimeout(function(){
-        hasil.scrollIntoView({behavior:'smooth', block:'center'});
-      }, 100);
-      // Update WhatsApp button link + pesan dan tampilkan
-      updateWaBtn(kota, durasi, peserta);
-      waBtn.style.display = "flex";
     });
-
-    function ucwords(str){
-      return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase());
-    }
-
-    // WhatsApp button
-    function updateWaBtn(kota, durasi, peserta) {
-      var wa = document.getElementById('waBtn');
-      let namaKota = ucwords(kota || '...');
-      let namaDurasi = durasi == 1 ? "1 Hari" : durasi == 2 ? "2 Hari 1 Malam" : durasi == 3 ? "3 Hari 2 Malam" : '';
-      let pesertaText = peserta ? peserta : '';
-      let msg = encodeURIComponent(
-        `Halo admin Putratour.id, saya mau nego harga paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${pesertaText}\nMohon infonya, terima kasih!`
-      );
-      // no wa dipecah (tidak full string)
-      var no = '62' + '811' + '2828' + '283';
-      wa.href = `https://wa.me/${no}?text=${msg}`;
-    }
-    // Set WA btn awal: tetap hidden
-    document.getElementById('waBtn').style.display = "none";
-  </script>
-  <!-- SCHEMA.ORG Structured Data WebApplication -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Cek Harga Paket Wisata Dieng",
-    "url": "https://putratour.id/",
-    "applicationCategory": "Travel & Tourism",
-    "operatingSystem": "All",
-    "description": "Program cek harga otomatis untuk paket wisata Dieng. Pilih kota, durasi, dan jumlah peserta untuk melihat estimasi biaya real-time, fasilitas, destinasi, dan booking via WhatsApp.",
-    "offers": {
-      "@type": "Offer",
-      "price": "Bervariasi",
-      "priceCurrency": "IDR"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Putratour.id",
-      "url": "https://putratour.id"
-    }
-  }
-  </script>
-  <!-- SCHEMA.ORG Structured Data FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Apa keunggulan sistem cek harga ini?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sistem cek harga Putratour.id memberikan info real & transparan, update setiap saat. Anda bisa cek biaya dari berbagai kota, durasi, dan peserta tanpa perlu menunggu penawaran manual."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Harga sudah termasuk apa saja?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Semua harga paket all in termasuk transportasi, penginapan (jika menginap), makan, tiket masuk, driver, tour guide, BBM, parkir, tol, dan air mineral. Info detail fasilitas bisa dilihat di bagian atas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Bisa pesan untuk peserta lebih dari 20 orang?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Untuk group besar di atas 20 orang, silakan hubungi admin Putratour.id langsung untuk penawaran khusus sesuai kebutuhan Anda."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Apakah harga bisa berubah?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Harga di sistem adalah update terbaru, namun bisa berubah sesuai kebijakan tempat wisata, musim liburan, atau permintaan khusus. Pastikan cek sebelum booking."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Bagaimana cara booking atau konsultasi?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Setelah cek harga, Anda bisa langsung konsultasi dan reservasi lewat WhatsApp admin resmi Putratour.id, atau kunjungi website utama untuk info lebih lengkap."
-        }
-      }
-    ]
-  }
   </script>
 </body>
 </html>
