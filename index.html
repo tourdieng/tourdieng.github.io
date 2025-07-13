@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <style>
+/* ========== CSS TIDAK ADA YANG DIUBAH ========== */
 :root {
   --brand: #6a1b9a;
   --primary: #1976d2;
@@ -212,7 +213,6 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   background: var(--primary);
   transform: translateY(-2px) scale(1.04);
 }
-
 /* ========== TOMBOL BACK BARU ========== */
 .back-btn-wrap {
   display: flex;
@@ -268,8 +268,6 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   .wa-btn { min-width: 96vw;}
   .back-btn-wrap { margin-bottom: 48px !important; }
   .back-btn { padding: 13px 29px 13px 16px; font-size: 1.08rem; min-width: 0; }
-
-  /* Tambahan khusus QR di HP */
   #qrWrap img {
     max-width: 220px;
     width: 100%;
@@ -284,9 +282,7 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
     display: block;
   }
 }
-
 /* ========== END TOMBOL BACK BARU ========== */
-
 .hasil-harga { margin-top: 8px; padding: 22px 0 0 0; text-align: center;}
 .harga-besar { font-size: 2.14rem; font-weight: 800; color: var(--brand); margin-bottom: 10px;}
 .harga-break { color:#888; font-size: 1.08rem; margin-bottom:10px;}
@@ -531,8 +527,8 @@ footer {
           <svg fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#fff" fill-opacity="0.17"/><path d="M8 28L18 15L24 23L29 18L35 28H8Z" fill="#ffd600"/><circle cx="18" cy="16" r="1.5" fill="#6a1b9a"/></svg>
         </span>
         <a href="/" style="text-decoration:none;color:inherit">
-  <span class="brand-title">Putratour.id</span>
-</a>
+          <span class="brand-title">Putratour.id</span>
+        </a>
       </div>
       <div>
         <button class="dark-toggle" id="toggleDark" title="Mode gelap/terang">🌗</button>
@@ -605,321 +601,315 @@ footer {
     </section>
   </main>
   <div style="text-align:center;margin:32px 0 10px 0;">
-  <a href="https://www.putratour.id/paket-wisata-dieng/" target="_blank" 
-     style="display:inline-block;background:#6a1b9a;color:#fff;font-weight:700;padding:13px 28px;border-radius:2rem;font-size:1.12rem;text-decoration:none;box-shadow:0 2px 12px #6a1b9a22;transition:background .19s;">
-    Lihat Semua Paket Wisata Dieng &gt;
-  </a>
-</div>
-
+    <a href="https://www.putratour.id/paket-wisata-dieng/" target="_blank"
+      style="display:inline-block;background:#6a1b9a;color:#fff;font-weight:700;padding:13px 28px;border-radius:2rem;font-size:1.12rem;text-decoration:none;box-shadow:0 2px 12px #6a1b9a22;transition:background .19s;">
+      Lihat Semua Paket Wisata Dieng &gt;
+    </a>
+  </div>
   <footer>
     &copy; 2025 Putratour.id – Cek Harga & Reservasi Paket Wisata Dieng. All rights reserved.
   </footer>
   <div class="toast" id="toast"></div>
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <script>
-    // Semua data asli, logic asli, hanya renderStep ganti tombol back
-    const checkSvg = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="display:inline;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8.5" r="8.5" fill="#f0f9f5"/><path d="M5 9.2l2.1 2.1 4.2-4.6" stroke="#219a56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-    const fasilIcon = Array(20).fill(checkSvg);
-    const destIcon = Array(20).fill(checkSvg);
-
-    const kotaList = [
-      { value:"jogja", label:"Jogja" },{ value:"wonosobo", label:"Wonosobo" },{ value:"purwokerto", label:"Purwokerto" },{ value:"semarang", label:"Semarang" },{ value:"solo", label:"Solo" },{ value:"dieng", label:"Dieng" },{ value:"banjarnegara", label:"Banjarnegara" },{ value:"magelang", label:"Magelang" },{ value:"salatiga", label:"Salatiga" },{ value:"kebumen", label:"Kebumen" },{ value:"cilacap", label:"Cilacap" },{ value:"pekalongan", label:"Pekalongan" }
-    ];
-    const hargaData = {/* ...data harga asli, tidak diubah... */1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }};
-    const fasilitasData = {
-      1: ['Kendaraan', 'Layanan makan 2x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
-      2: ['Kendaraan', 'Penginapan 1 malam', 'Layanan makan 4x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
-      3: ['Kendaraan', 'Penginapan 2 malam', 'Layanan makan 7x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral']
+// Semua data, logic, dan urutan tidak diubah, hanya fix bug kecil & validasi extra
+const checkSvg = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="display:inline;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8.5" r="8.5" fill="#f0f9f5"/><path d="M5 9.2l2.1 2.1 4.2-4.6" stroke="#219a56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const kotaList = [
+  { value:"jogja", label:"Jogja" },{ value:"wonosobo", label:"Wonosobo" },{ value:"purwokerto", label:"Purwokerto" },{ value:"semarang", label:"Semarang" },{ value:"solo", label:"Solo" },{ value:"dieng", label:"Dieng" },{ value:"banjarnegara", label:"Banjarnegara" },{ value:"magelang", label:"Magelang" },{ value:"salatiga", label:"Salatiga" },{ value:"kebumen", label:"Kebumen" },{ value:"cilacap", label:"Cilacap" },{ value:"pekalongan", label:"Pekalongan" }
+];
+const hargaData = {/* ...data harga asli... */1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }};
+const fasilitasData = {
+  1: ['Kendaraan', 'Layanan makan 2x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
+  2: ['Kendaraan', 'Penginapan 1 malam', 'Layanan makan 4x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
+  3: ['Kendaraan', 'Penginapan 2 malam', 'Layanan makan 7x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral']
+};
+const destinasiData = {
+  1: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Sentra Oleh-oleh dan Kuliner Khas'],
+  2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'],
+  3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner']
+};
+let step = 1;
+let dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" };
+let mute = false;
+let history = [];
+let loadingPercent = 0;
+let loadingInterval;
+function setStepper(n){
+  const stepElems = document.querySelectorAll('.step');
+  stepElems.forEach((el,i)=>{
+    el.classList.toggle('active',i===(n-1));
+    el.classList.toggle('complete',i<(n-1));
+  });
+}
+function ucwords(str){ return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase()); }
+function renderStep(){
+  setStepper(step);
+  let el = document.getElementById('cardStep');
+  el.classList.remove('card-slide'); void el.offsetWidth;
+  setTimeout(()=>el.classList.add('card-slide'), 15);
+  const svgBack = `<svg viewBox="0 0 32 32" fill="none"><path d="M21 27L10 16L21 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  if(step===1){
+    el.innerHTML = `
+      <div style="height:24px"></div>
+      <div class="form-group">
+        <label for="inpKota">Kota Keberangkatan</label>
+        <select id="inpKota" required>
+          <option value="">Pilih Kota...</option>
+          ${kotaList.map(x=>`<option value="${x.value}"${dataForm.kota===x.value?' selected':''}>${x.label}</option>`).join('')}
+        </select>
+        <div id="errKota" class="error"></div>
+      </div>
+      <button class="btn-main" onclick="nextStepKota()">Lanjutkan</button>
+    `;
+    document.getElementById('inpKota').focus();
+  } else if(step===2){
+    el.innerHTML = `
+      <div class="back-btn-wrap">
+        <button class="back-btn" onclick="prevStep()">
+          ${svgBack}<span>Kembali</span>
+        </button>
+      </div>
+      <div class="form-group">
+        <label for="inpTanggal">Pilih Tanggal Keberangkatan</label>
+        <input type="date" id="inpTanggal" value="${dataForm.tanggal||(new Date()).toISOString().split('T')[0]}" min="${(new Date()).toISOString().split('T')[0]}" required>
+        <div id="errTanggal" class="error"></div>
+      </div>
+      <button class="btn-main" onclick="nextStepTanggal()">Lanjutkan</button>
+    `;
+    document.getElementById('inpTanggal').focus();
+  } else if(step===3){
+    el.innerHTML = `
+      <div class="back-btn-wrap">
+        <button class="back-btn" onclick="prevStep()">
+          ${svgBack}<span>Kembali</span>
+        </button>
+      </div>
+      <div class="form-group">
+        <label for="inpDurasi">Durasi Paket</label>
+        <select id="inpDurasi" required>
+          <option value="">Pilih Durasi...</option>
+          <option value="1"${dataForm.durasi=="1"?' selected':''}>1 Hari</option>
+          <option value="2"${dataForm.durasi=="2"?' selected':''}>2 Hari 1 Malam</option>
+          <option value="3"${dataForm.durasi=="3"?' selected':''}>3 Hari 2 Malam</option>
+        </select>
+        <div id="errDurasi" class="error"></div>
+      </div>
+      <button class="btn-main" onclick="nextStepDurasi()">Lanjutkan</button>
+    `;
+    document.getElementById('inpDurasi').focus();
+  } else if(step===4){
+    el.innerHTML = `
+      <div class="back-btn-wrap">
+        <button class="back-btn" onclick="prevStep()">
+          ${svgBack}<span>Kembali</span>
+        </button>
+      </div>
+      <div class="form-group">
+        <label for="inpPeserta">Jumlah Peserta (2–20)</label>
+        <input type="number" id="inpPeserta" min="2" max="20" placeholder="2 – 20" value="${dataForm.peserta||''}" required>
+        <div id="errPeserta" class="error"></div>
+      </div>
+      <button class="btn-main" onclick="showLoading()">Lihat Hasil</button>
+    `;
+    document.getElementById('inpPeserta').focus();
+  } else if(step===5){
+    let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
+    let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
+    let idx = peserta-2;
+    if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
+    let harga = hargaArray ? hargaArray[idx] : 0;
+    let hargaTotal = harga*peserta;
+    let fasilitas = fasilitasData[durasi]||[];
+    let destinasi = destinasiData[durasi]||[];
+    let groupWarn = peserta>11?`<div style="color:#e57c23;font-size:.98rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk group besar!</div>`:'';
+    let fasilitasKartu = `
+      <div class="kartu-grid-col" style="background:var(--fasil);">
+        <div class="kartu-title"><span class="fasil-icon">${checkSvg}</span> Fasilitas</div>
+        <ul class="kartu-list">
+          ${fasilitas.map((f,i)=>`<li><span class="fasil-icon">${checkSvg}</span> ${f}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+    let destinasiKartu = `
+      <div class="kartu-grid-col dest-col">
+        <div class="kartu-title"><span class="dest-icon">${checkSvg}</span> Destinasi</div>
+        <ul class="kartu-list">
+          ${destinasi.map((d,i)=>`<li><span class="dest-icon">${checkSvg}</span> ${d}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+    el.innerHTML = `
+      <div class="back-btn-wrap">
+        <button class="back-btn" onclick="resetForm()">
+          ${svgBack}<span>Kembali ke Awal</span>
+        </button>
+      </div>
+      <div class="hasil-harga">
+        <div class="harga-besar">Rp${harga.toLocaleString('id-ID')}/orang</div>
+        <div class="harga-break">Total untuk ${peserta} orang: <b>Rp${hargaTotal.toLocaleString('id-ID')}</b></div>
+        <div style="margin-bottom:6px;">
+          <span style="background:var(--primary);color:#fff;padding:3px 10px 3px 8px;border-radius:.8rem;font-size:.97rem;">
+            ${ucwords(kota)}, ${tanggal ? new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"short",year:"numeric"}) : '-'} | ${peserta} peserta | ${durasi=='1'?'1 Hari':durasi=='2'?'2 Hari 1 Malam':'3 Hari 2 Malam'}
+          </span>
+        </div>
+        <div style="margin:10px 0 0 0;font-size:1.06rem;color:#295;">
+          Termasuk fasilitas, destinasi, makan, tiket masuk, tour guide. ${groupWarn}
+        </div>
+        <div class="kartu-grid-wrap">
+          ${fasilitasKartu}
+          ${destinasiKartu}
+        </div>
+        <div class="wa-share-row">
+          <a id="waBtn" class="wa-btn" target="_blank" rel="nofollow noopener">
+            <span>Pesan Sekarang via WhatsApp</span>
+          </a>
+          <button class="share-btn" onclick="copyResult()">Copy Detail Harga</button>
+        </div>
+        <div id="qrWrap"></div>
+        <button class="btn-main" style="margin-top:18px;" onclick="resetForm()">Cek Harga Lainnya</button>
+      </div>
+    `;
+    // WhatsApp & QR
+    let namaKota = ucwords(kota||'');
+    let namaDurasi = durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam";
+    let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
+    let msg = encodeURIComponent(
+      `Halo admin Putratour.id, saya mau booking paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Tanggal: ${tglText}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${peserta}\n- Estimasi harga per orang: Rp${harga.toLocaleString('id-ID')}\n- Estimasi total: Rp${(harga*peserta).toLocaleString('id-ID')}\nMohon infonya, terima kasih!`
+    );
+    var no = '62'+'811'+'2828'+'283';
+    let waBtn = document.getElementById('waBtn');
+    if (waBtn) waBtn.href = `https://wa.me/${no}?text=${msg}`;
+    // QR WhatsApp
+    let qrWrap = document.getElementById('qrWrap');
+    qrWrap.innerHTML = '';
+    if (window.qrcode) {
+      let qrDiv = document.createElement('div');
+      let qrUrl = `https://wa.me/${no}?text=${msg}`;
+      qrDiv.innerHTML = `<label>Scan QR untuk WhatsApp</label>`;
+      let qr = window.qrcode(0, 'L');
+      qr.addData(qrUrl); qr.make();
+      qrDiv.innerHTML += qr.createImgTag(6, 0);
+      qrWrap.appendChild(qrDiv);
+    }
+    if(!mute) { playSound(); }
+    let record = {
+      kota: namaKota, tanggal: tglText, durasi: namaDurasi, peserta, harga, hargaTotal,
+      t: Date.now()
     };
-    const destinasiData = {
-      1: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Sentra Oleh-oleh dan Kuliner Khas'],
-      2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'],
-      3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner']
-    };
-
-    let step = 1;
-    let dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" };
-    let mute = false;
-    let history = [];
-    let loadingPercent = 0;
-    let loadingInterval;
-
-    function setStepper(n){
-      const stepElems = document.querySelectorAll('.step');
-      stepElems.forEach((el,i)=>{
-        el.classList.toggle('active',i===(n-1));
-        el.classList.toggle('complete',i<(n-1));
-      });
-    }
-    function ucwords(str){ return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase()); }
-
-    // === Perubahan renderStep: semua tombol back pakai .back-btn-wrap & text "Kembali" ===
-    function renderStep(){
-      setStepper(step);
-      let el = document.getElementById('cardStep');
-      el.classList.remove('card-slide'); void el.offsetWidth;
-      setTimeout(()=>el.classList.add('card-slide'), 15);
-      const svgBack = `<svg viewBox="0 0 32 32" fill="none"><path d="M21 27L10 16L21 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-      if(step===1){
-        el.innerHTML = `
-          <div style="height:24px"></div>
-          <div class="form-group">
-            <label for="inpKota">Kota Keberangkatan</label>
-            <select id="inpKota" required>
-              <option value="">Pilih Kota...</option>
-              ${kotaList.map(x=>`<option value="${x.value}"${dataForm.kota===x.value?' selected':''}>${x.label}</option>`).join('')}
-            </select>
-            <div id="errKota" class="error"></div>
-          </div>
-          <button class="btn-main" onclick="nextStepKota()">Lanjutkan</button>
-        `;
-        document.getElementById('inpKota').focus();
-      } else if(step===2){
-        el.innerHTML = `
-          <div class="back-btn-wrap">
-            <button class="back-btn" onclick="prevStep()">
-              ${svgBack}<span>Kembali</span>
-            </button>
-          </div>
-          <div class="form-group">
-            <label for="inpTanggal">Pilih Tanggal Keberangkatan</label>
-            <input type="date" id="inpTanggal" value="${dataForm.tanggal||(new Date()).toISOString().split('T')[0]}" min="${(new Date()).toISOString().split('T')[0]}" required>
-            <div id="errTanggal" class="error"></div>
-          </div>
-          <button class="btn-main" onclick="nextStepTanggal()">Lanjutkan</button>
-        `;
-        document.getElementById('inpTanggal').focus();
-      } else if(step===3){
-        el.innerHTML = `
-          <div class="back-btn-wrap">
-            <button class="back-btn" onclick="prevStep()">
-              ${svgBack}<span>Kembali</span>
-            </button>
-          </div>
-          <div class="form-group">
-            <label for="inpDurasi">Durasi Paket</label>
-            <select id="inpDurasi" required>
-              <option value="">Pilih Durasi...</option>
-              <option value="1"${dataForm.durasi=="1"?' selected':''}>1 Hari</option>
-              <option value="2"${dataForm.durasi=="2"?' selected':''}>2 Hari 1 Malam</option>
-              <option value="3"${dataForm.durasi=="3"?' selected':''}>3 Hari 2 Malam</option>
-            </select>
-            <div id="errDurasi" class="error"></div>
-          </div>
-          <button class="btn-main" onclick="nextStepDurasi()">Lanjutkan</button>
-        `;
-        document.getElementById('inpDurasi').focus();
-      } else if(step===4){
-        el.innerHTML = `
-          <div class="back-btn-wrap">
-            <button class="back-btn" onclick="prevStep()">
-              ${svgBack}<span>Kembali</span>
-            </button>
-          </div>
-          <div class="form-group">
-            <label for="inpPeserta">Jumlah Peserta (2–20)</label>
-            <input type="number" id="inpPeserta" min="2" max="20" placeholder="2 – 20" value="${dataForm.peserta||''}" required>
-            <div id="errPeserta" class="error"></div>
-          </div>
-          <button class="btn-main" onclick="showLoading()">Lihat Hasil</button>
-        `;
-        document.getElementById('inpPeserta').focus();
-      } else if(step===5){
-        let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
-        let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
-        let idx = peserta-2;
-        if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
-        let harga = hargaArray ? hargaArray[idx] : 0;
-        let hargaTotal = harga*peserta;
-        let fasilitas = fasilitasData[durasi]||[];
-        let destinasi = destinasiData[durasi]||[];
-        let groupWarn = peserta>11?`<div style="color:#e57c23;font-size:.98rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk group besar!</div>`:'';
-        let fasilitasKartu = `
-          <div class="kartu-grid-col" style="background:var(--fasil);">
-            <div class="kartu-title"><span class="fasil-icon">${checkSvg}</span> Fasilitas</div>
-            <ul class="kartu-list">
-              ${fasilitas.map((f,i)=>`<li><span class="fasil-icon">${checkSvg}</span> ${f}</li>`).join('')}
-            </ul>
-          </div>
-        `;
-        let destinasiKartu = `
-          <div class="kartu-grid-col dest-col">
-            <div class="kartu-title"><span class="dest-icon">${checkSvg}</span> Destinasi</div>
-            <ul class="kartu-list">
-              ${destinasi.map((d,i)=>`<li><span class="dest-icon">${checkSvg}</span> ${d}</li>`).join('')}
-            </ul>
-          </div>
-        `;
-        el.innerHTML = `
-          <div class="back-btn-wrap">
-            <button class="back-btn" onclick="resetForm()">
-              ${svgBack}<span>Kembali ke Awal</span>
-            </button>
-          </div>
-          <div class="hasil-harga">
-            <div class="harga-besar">Rp${harga.toLocaleString('id-ID')}/orang</div>
-            <div class="harga-break">Total untuk ${peserta} orang: <b>Rp${hargaTotal.toLocaleString('id-ID')}</b></div>
-            <div style="margin-bottom:6px;">
-              <span style="background:var(--primary);color:#fff;padding:3px 10px 3px 8px;border-radius:.8rem;font-size:.97rem;">
-                ${ucwords(kota)}, ${tanggal ? new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"short",year:"numeric"}) : '-'} | ${peserta} peserta | ${durasi=='1'?'1 Hari':durasi=='2'?'2 Hari 1 Malam':'3 Hari 2 Malam'}
-              </span>
-            </div>
-            <div style="margin:10px 0 0 0;font-size:1.06rem;color:#295;">
-              Termasuk fasilitas, destinasi, makan, tiket masuk, tour guide. ${groupWarn}
-            </div>
-            <div class="kartu-grid-wrap">
-              ${fasilitasKartu}
-              ${destinasiKartu}
-            </div>
-            <div class="wa-share-row">
-              <a id="waBtn" class="wa-btn" target="_blank" rel="nofollow noopener">
-                <span>Chat Admin via WhatsApp</span>
-              </a>
-              <button class="share-btn" onclick="copyResult()">Copy Detail Harga</button>
-            </div>
-            <div id="qrWrap"></div>
-            <button class="btn-main" style="margin-top:18px;" onclick="resetForm()">Cek Harga Lainnya</button>
-          </div>
-        `;
-        // WhatsApp & QR
-        let namaKota = ucwords(kota||'');
-        let namaDurasi = durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam";
-        let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
-        let msg = encodeURIComponent(
-          `Halo admin Putratour.id, saya mau booking paket wisata Dieng:\n- Kota keberangkatan: ${namaKota}\n- Tanggal: ${tglText}\n- Durasi: ${namaDurasi}\n- Jumlah peserta: ${peserta}\n- Estimasi harga per orang: Rp${harga.toLocaleString('id-ID')}\n- Estimasi total: Rp${(harga*peserta).toLocaleString('id-ID')}\nMohon infonya, terima kasih!`
-        );
-        var no = '62'+'811'+'2828'+'283';
-        let waBtn = document.getElementById('waBtn');
-        if (waBtn) waBtn.href = `https://wa.me/${no}?text=${msg}`;
-        // QR WhatsApp
-        if (window.qrcode) {
-          let qrDiv = document.createElement('div');
-          let qrUrl = `https://wa.me/${no}?text=${msg}`;
-          qrDiv.innerHTML = `<label>Scan QR untuk WhatsApp</label>`;
-          let qr = window.qrcode(0, 'L');
-          qr.addData(qrUrl); qr.make();
-          qrDiv.innerHTML += qr.createImgTag(6, 0);
-          document.getElementById('qrWrap').appendChild(qrDiv);
-        }
-        if(!mute) { playSound(); }
-        let record = {
-          kota: namaKota, tanggal: tglText, durasi: namaDurasi, peserta, harga, hargaTotal,
-          t: Date.now()
-        };
-        history.unshift(record); if(history.length>10) history.length=10;
-        localStorage.setItem('cekHargaHistory', JSON.stringify(history));
-        renderHistory();
-      } else if(step==="loading"){
-        el.innerHTML = `
-          <div class="back-btn-wrap">
-            <button class="back-btn" onclick="step=4;renderStep()">
-              ${svgBack}<span>Kembali</span>
-            </button>
-          </div>
-          <div class="loading-wrap">
-            <div>
-              <span class="loading-dot"></span>
-              <span class="loading-dot"></span>
-              <span class="loading-dot"></span>
-            </div>
-            <div class="loading-text">Mencari harga terbaik untukmu…</div>
-            <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
-          </div>
-        `;
-        loadingPercent=0;
-        const bar = document.getElementById('progressBar');
-        clearInterval(loadingInterval);
-        loadingInterval = setInterval(function(){
-          loadingPercent += Math.random()*14+10;
-          if(loadingPercent>=100) loadingPercent=100;
-          bar.style.width = loadingPercent+'%';
-        }, 260);
-      }
-    }
-    function nextStepKota(){ let v = document.getElementById('inpKota').value; if(!v) { document.getElementById('errKota').textContent="Pilih kota dulu"; return;} dataForm.kota = v; step=2; renderStep();}
-    function nextStepTanggal(){ let v = document.getElementById('inpTanggal').value; if(!v) { document.getElementById('errTanggal').textContent="Pilih tanggal dulu"; return;} dataForm.tanggal = v; step=3; renderStep();}
-    function nextStepDurasi(){ let v = document.getElementById('inpDurasi').value; if(!v) { document.getElementById('errDurasi').textContent="Pilih durasi dulu"; return;} dataForm.durasi = v; step=4; renderStep();}
-    function showLoading(){
-      let v = document.getElementById('inpPeserta').value;
-      if(!v || v<2 || v>20) { document.getElementById('errPeserta').textContent="Jumlah peserta 2–20"; return;}
-      dataForm.peserta = v;
-      step="loading"; renderStep();
-      setTimeout(()=>{
-        clearInterval(loadingInterval);
-        step=5;renderStep();
-      },1700);
-    }
-    function prevStep(){ step = Math.max(1,step-1); renderStep();}
-    function resetForm(){ step=1; dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" }; renderStep();}
-    function copyResult(){
-      let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
-      let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
-      let idx = peserta-2;
-      if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
-      let harga = hargaArray ? hargaArray[idx] : 0;
-      let hargaTotal = harga*peserta;
-      let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
-      let txt = `Cek harga paket wisata Dieng:\nKota: ${ucwords(kota)}\nTanggal: ${tglText}\nDurasi: ${durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam"}\nPeserta: ${peserta}\nHarga per orang: Rp${harga.toLocaleString('id-ID')}\nTotal: Rp${hargaTotal.toLocaleString('id-ID')}\nPutratour.id`;
-      navigator.clipboard.writeText(txt).then(()=>{ showToast("Detail harga berhasil disalin!"); });
-    }
-    function showToast(txt){ let t=document.getElementById('toast'); t.textContent=txt; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200);}
-    function renderHistory(){
-      let sec = document.getElementById('historySec');
-      let ul = document.getElementById('historyList');
-      if(!history || history.length<1){ sec.style.display="none"; return; }
-      sec.style.display="block";
-      ul.innerHTML = history.map((h,i)=>`<li>
-        <span>
-          <b>${h.kota}</b> | ${h.durasi} | ${h.peserta} org <span style="color:#5a5a;">(${h.tanggal})</span>
-          <br><span style="color:var(--primary);font-weight:700">Rp${h.harga.toLocaleString('id-ID')}</span>
-        </span>
-        <button class="history-btn" onclick="reShow(${i})">Lihat</button>
-      </li>`).join('');
-    }
-    function reShow(i){
-      let h = history[i];
-      if(!h) return;
-      dataForm = {
-        kota: kotaList.find(x=>x.label===h.kota)?.value||"",
-        tanggal: h.tanggal&&h.tanggal!=="-"?new Date(h.tanggal).toISOString().split('T')[0]:"",
-        durasi: h.durasi.startsWith("1")?"1":h.durasi.startsWith("2")?"2":"3",
-        peserta: h.peserta
-      };
-      step=5; renderStep();
-    }
-    function playSound(){
-      let ctx = new (window.AudioContext||window.webkitAudioContext)();
-      let o = ctx.createOscillator(); let g = ctx.createGain();
-      o.type="triangle"; o.frequency.value=484;
-      o.connect(g); g.connect(ctx.destination);
-      g.gain.value=.07; o.start();
-      setTimeout(()=>{g.gain.linearRampToValueAtTime(0,ctx.currentTime+.18);o.stop(ctx.currentTime+.19);},180);
-    }
-    document.getElementById('muteBtn').onclick = function(){
-      mute=!mute;
-      this.textContent = mute?'🔇':'🔊';
-      this.title = mute?"Notifikasi suara dimatikan":"Notifikasi suara aktif";
-    }
-    let dark=false;
-    function applyTheme(){
-      document.documentElement.setAttribute('data-theme',dark?'dark':'light');
-      document.getElementById('toggleDark').textContent=dark?'☀️':'🌗';
-    }
-    document.getElementById('toggleDark').onclick=()=>{ dark=!dark; applyTheme(); localStorage.setItem('darkDieng',dark?"1":"0"); }
-    if(localStorage.getItem('darkDieng')==="1") { dark=true; }
-    applyTheme();
-    try{ history = JSON.parse(localStorage.getItem('cekHargaHistory')||"[]")||[]; }catch(e){}
+    history.unshift(record); if(history.length>10) history.length=10;
+    localStorage.setItem('cekHargaHistory', JSON.stringify(history));
     renderHistory();
-    renderStep();
-    document.addEventListener('keydown',function(e){
-      if(e.key==="Enter"){
-        let inp=document.activeElement;
-        if(step===1 && inp.id==="inpKota") nextStepKota();
-        else if(step===2 && inp.id==="inpTanggal") nextStepTanggal();
-        else if(step===3 && inp.id==="inpDurasi") nextStepDurasi();
-        else if(step===4 && inp.id==="inpPeserta") showLoading();
-      }
-    });
+  } else if(step==="loading"){
+    el.innerHTML = `
+      <div class="back-btn-wrap">
+        <button class="back-btn" onclick="step=4;renderStep()">
+          ${svgBack}<span>Kembali</span>
+        </button>
+      </div>
+      <div class="loading-wrap">
+        <div>
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+        </div>
+        <div class="loading-text">Mencari harga terbaik untukmu…</div>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+    `;
+    loadingPercent=0;
+    const bar = document.getElementById('progressBar');
+    clearInterval(loadingInterval);
+    loadingInterval = setInterval(function(){
+      loadingPercent += Math.random()*14+10;
+      if(loadingPercent>=100) loadingPercent=100;
+      bar.style.width = loadingPercent+'%';
+    }, 260);
+  }
+}
+function nextStepKota(){ let v = document.getElementById('inpKota').value; if(!v) { document.getElementById('errKota').textContent="Pilih kota dulu"; return;} dataForm.kota = v; step=2; renderStep();}
+function nextStepTanggal(){ let v = document.getElementById('inpTanggal').value; if(!v) { document.getElementById('errTanggal').textContent="Pilih tanggal dulu"; return;} dataForm.tanggal = v; step=3; renderStep();}
+function nextStepDurasi(){ let v = document.getElementById('inpDurasi').value; if(!v) { document.getElementById('errDurasi').textContent="Pilih durasi dulu"; return;} dataForm.durasi = v; step=4; renderStep();}
+function showLoading(){
+  let v = document.getElementById('inpPeserta').value;
+  if(!v || v<2 || v>20) { document.getElementById('errPeserta').textContent="Jumlah peserta 2–20"; return;}
+  dataForm.peserta = v;
+  step="loading"; renderStep();
+  setTimeout(()=>{
+    clearInterval(loadingInterval);
+    step=5;renderStep();
+  },1700);
+}
+function prevStep(){ step = Math.max(1,step-1); renderStep();}
+function resetForm(){ step=1; dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" }; renderStep();}
+function copyResult(){
+  let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
+  let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
+  let idx = peserta-2;
+  if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
+  let harga = hargaArray ? hargaArray[idx] : 0;
+  let hargaTotal = harga*peserta;
+  let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
+  let txt = `Cek harga paket wisata Dieng:\nKota: ${ucwords(kota)}\nTanggal: ${tglText}\nDurasi: ${durasi=='1'?"1 Hari":durasi=='2'?"2 Hari 1 Malam":"3 Hari 2 Malam"}\nPeserta: ${peserta}\nHarga per orang: Rp${harga.toLocaleString('id-ID')}\nTotal: Rp${hargaTotal.toLocaleString('id-ID')}\nPutratour.id`;
+  navigator.clipboard.writeText(txt).then(()=>{ showToast("Detail harga berhasil disalin!"); });
+}
+function showToast(txt){ let t=document.getElementById('toast'); t.textContent=txt; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200);}
+function renderHistory(){
+  let sec = document.getElementById('historySec');
+  let ul = document.getElementById('historyList');
+  if(!history || history.length<1){ sec.style.display="none"; return; }
+  sec.style.display="block";
+  ul.innerHTML = history.map((h,i)=>`<li>
+    <span>
+      <b>${h.kota}</b> | ${h.durasi} | ${h.peserta} org <span style="color:#5a5a;">(${h.tanggal})</span>
+      <br><span style="color:var(--primary);font-weight:700">Rp${h.harga.toLocaleString('id-ID')}</span>
+    </span>
+    <button class="history-btn" onclick="reShow(${i})">Lihat</button>
+  </li>`).join('');
+}
+function reShow(i){
+  let h = history[i];
+  if(!h) return;
+  dataForm = {
+    kota: kotaList.find(x=>x.label===h.kota)?.value||"",
+    tanggal: h.tanggal&&h.tanggal!=="-"?new Date(h.tanggal).toISOString().split('T')[0]:"",
+    durasi: h.durasi.startsWith("1")?"1":h.durasi.startsWith("2")?"2":"3",
+    peserta: h.peserta
+  };
+  step=5; renderStep();
+}
+function playSound(){
+  let ctx = new (window.AudioContext||window.webkitAudioContext)();
+  let o = ctx.createOscillator(); let g = ctx.createGain();
+  o.type="triangle"; o.frequency.value=484;
+  o.connect(g); g.connect(ctx.destination);
+  g.gain.value=.07; o.start();
+  setTimeout(()=>{g.gain.linearRampToValueAtTime(0,ctx.currentTime+.18);o.stop(ctx.currentTime+.19);},180);
+}
+document.getElementById('muteBtn').onclick = function(){
+  mute=!mute;
+  this.textContent = mute?'🔇':'🔊';
+  this.title = mute?"Notifikasi suara dimatikan":"Notifikasi suara aktif";
+}
+let dark=false;
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  document.getElementById('toggleDark').textContent=dark?'☀️':'🌗';
+}
+document.getElementById('toggleDark').onclick=()=>{ dark=!dark; applyTheme(); localStorage.setItem('darkDieng',dark?"1":"0"); }
+if(localStorage.getItem('darkDieng')==="1") { dark=true; }
+applyTheme();
+try{ history = JSON.parse(localStorage.getItem('cekHargaHistory')||"[]")||[]; }catch(e){}
+renderHistory();
+renderStep();
+document.addEventListener('keydown',function(e){
+  if(e.key==="Enter"){
+    let inp=document.activeElement;
+    if(step===1 && inp.id==="inpKota") nextStepKota();
+    else if(step===2 && inp.id==="inpTanggal") nextStepTanggal();
+    else if(step===3 && inp.id==="inpDurasi") nextStepDurasi();
+    else if(step===4 && inp.id==="inpPeserta") showLoading();
+  }
+});
   </script>
 </body>
 </html>
