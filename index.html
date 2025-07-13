@@ -581,9 +581,9 @@ footer {
         </p>
       </details>
       <details>
-        <summary>Bisa pesan untuk peserta lebih dari 20 orang?</summary>
+        <summary>Bisa pesan untuk peserta lebih dari 10 orang?</summary>
         <p>
-          Untuk group besar di atas 20 orang, silakan hubungi admin Putratour.id langsung untuk penawaran khusus sesuai kebutuhan Anda.
+          Untuk group besar di atas 10 orang, silakan hubungi admin Putratour.id langsung untuk penawaran khusus sesuai kebutuhan Anda.
         </p>
       </details>
       <details>
@@ -610,30 +610,24 @@ footer {
     &copy; 2025 Putratour.id – Cek Harga & Reservasi Paket Wisata Dieng. All rights reserved.
   </footer>
   <div class="toast" id="toast"></div>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-  <script>
-// Semua data, logic, dan urutan tidak diubah, hanya fix bug kecil & validasi extra
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script>
 const checkSvg = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="display:inline;vertical-align:middle;" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8.5" r="8.5" fill="#f0f9f5"/><path d="M5 9.2l2.1 2.1 4.2-4.6" stroke="#219a56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const kotaList = [
   { value:"jogja", label:"Jogja" },{ value:"wonosobo", label:"Wonosobo" },{ value:"purwokerto", label:"Purwokerto" },{ value:"semarang", label:"Semarang" },{ value:"solo", label:"Solo" },{ value:"dieng", label:"Dieng" },{ value:"banjarnegara", label:"Banjarnegara" },{ value:"magelang", label:"Magelang" },{ value:"salatiga", label:"Salatiga" },{ value:"kebumen", label:"Kebumen" },{ value:"cilacap", label:"Cilacap" },{ value:"pekalongan", label:"Pekalongan" }
 ];
-const hargaData = {/* ...data harga asli... */1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }};
-const fasilitasData = {
-  1: ['Kendaraan', 'Layanan makan 2x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
-  2: ['Kendaraan', 'Penginapan 1 malam', 'Layanan makan 4x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'],
-  3: ['Kendaraan', 'Penginapan 2 malam', 'Layanan makan 7x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral']
-};
-const destinasiData = {
-  1: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Sentra Oleh-oleh dan Kuliner Khas'],
-  2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'],
-  3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner']
-};
+const hargaData = {/* ...DATA HARGA ASLI TETAP... */1: { jogja: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], wonosobo: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], purwokerto: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], semarang: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], solo: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], dieng: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], banjarnegara: [1550000,775000,750000,575000,550000,525000,675000,650000,600000,550000], magelang: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], salatiga: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], kebumen: [2500000,1250000,900000,800000,750000,725000,950000,900000,850000,750000], cilacap: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000], pekalongan: [2700000,1350000,950000,850000,800000,750000,975000,925000,875000,775000] },2: { jogja: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], wonosobo: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], purwokerto: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], semarang: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], solo: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], dieng: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], banjarnegara: [4200000,2100000,1500000,1150000,1100000,1050000,1275000,1250000,1250000,1250000], magelang: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], salatiga: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], kebumen: [4500000,2250000,1550000,1250000,1225000,1200000,1550000,1500000,1450000,1350000], cilacap: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000], pekalongan: [4700000,2350000,1650000,1350000,1300000,1250000,1600000,1550000,1500000,1375000] },3: { jogja: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], wonosobo: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], purwokerto: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], semarang: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], solo: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], dieng: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], banjarnegara: [6300000,3150000,2450000,1850000,1800000,1750000,1900000,1875000,1850000,1800000], magelang: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], salatiga: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], kebumen: [6500000,3250000,2450000,1900000,1850000,1800000,1950000,1900000,1850000,1800000], cilacap: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000], pekalongan: [6700000,3350000,2550000,1950000,1900000,1850000,1975000,1950000,1900000,1850000] }};
+const fasilitasData = { /*...SAMA...*/ 1: ['Kendaraan', 'Layanan makan 2x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'], 2: ['Kendaraan', 'Penginapan 1 malam', 'Layanan makan 4x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'], 3: ['Kendaraan', 'Penginapan 2 malam', 'Layanan makan 7x', 'Tiket masuk destinasi wisata', 'Driver', 'Tour guide', 'BBM', 'Parkir', 'Tol', 'Air mineral'] };
+const destinasiData = {/*...SAMA...*/ 1: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Sentra Oleh-oleh dan Kuliner Khas'], 2: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'], 3: ['Bukit Sikunir', 'Telaga Cebong', 'Kawah Sikidang', 'Komplek Candi Arjuna', 'Batu Ratapan Angin', 'Dieng Plateau Theater', 'Taman Pintu Langit', 'Pemandian Air Panas Dieng', 'Kahyangan Skyline', 'Dieng Park', 'Bukit Scooter', 'Air Terjun Sikarim', 'Telaga Menjer', 'Perkebunan Teh', 'Sentra Oleh-oleh dan Kuliner'] };
+
 let step = 1;
 let dataForm = { kota:"", tanggal:"", durasi:"", peserta:"" };
 let mute = false;
 let history = [];
 let loadingPercent = 0;
 let loadingInterval;
+
 function setStepper(n){
   const stepElems = document.querySelectorAll('.step');
   stepElems.forEach((el,i)=>{
@@ -642,6 +636,7 @@ function setStepper(n){
   });
 }
 function ucwords(str){ return (str+'').replace(/_/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase()); }
+
 function renderStep(){
   setStepper(step);
   let el = document.getElementById('cardStep');
@@ -705,8 +700,8 @@ function renderStep(){
         </button>
       </div>
       <div class="form-group">
-        <label for="inpPeserta">Jumlah Peserta (2–20)</label>
-        <input type="number" id="inpPeserta" min="2" max="20" placeholder="2 – 20" value="${dataForm.peserta||''}" required>
+        <label for="inpPeserta">Jumlah Peserta (1–10)</label>
+        <input type="number" id="inpPeserta" min="1" max="10" placeholder="1 – 10" value="${dataForm.peserta||''}" required>
         <div id="errPeserta" class="error"></div>
       </div>
       <button class="btn-main" onclick="showLoading()">Lihat Hasil</button>
@@ -714,14 +709,29 @@ function renderStep(){
     document.getElementById('inpPeserta').focus();
   } else if(step===5){
     let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
+    // Validasi range peserta
+    if (!peserta || peserta < 1 || peserta > 10) {
+      el.innerHTML = `
+        <div class="back-btn-wrap">
+          <button class="back-btn" onclick="resetForm()">
+            ${svgBack}<span>Kembali ke Awal</span>
+          </button>
+        </div>
+        <div style="color:#e05747;font-size:1.13rem;margin:26px 0;">
+          Maaf, harga otomatis hanya tersedia untuk 1–10 orang.<br>
+          Untuk group lebih dari 10 orang, silakan <a href="https://wa.me/628112828283" target="_blank" style="color:#1976d2;text-decoration:underline;font-weight:bold;">hubungi admin</a> untuk penawaran spesial!
+        </div>
+        <button class="btn-main" onclick="resetForm()">Cek Ulang</button>
+      `;
+      return;
+    }
     let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
-    let idx = peserta-2;
-    if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
+    let idx = peserta-1;
     let harga = hargaArray ? hargaArray[idx] : 0;
     let hargaTotal = harga*peserta;
     let fasilitas = fasilitasData[durasi]||[];
     let destinasi = destinasiData[durasi]||[];
-    let groupWarn = peserta>11?`<div style="color:#e57c23;font-size:.98rem;margin-top:4px;">Harga estimasi untuk ${peserta} orang, <b>hubungi admin</b> untuk group besar!</div>`:'';
+    let groupWarn = peserta==10?`<div style="color:#e57c23;font-size:.98rem;margin-top:4px;">Harga untuk 10 orang (maksimal di sistem). Untuk lebih dari 10 peserta silakan chat admin!</div>`:'';
     let fasilitasKartu = `
       <div class="kartu-grid-col" style="background:var(--fasil);">
         <div class="kartu-title"><span class="fasil-icon">${checkSvg}</span> Fasilitas</div>
@@ -831,7 +841,7 @@ function nextStepTanggal(){ let v = document.getElementById('inpTanggal').value;
 function nextStepDurasi(){ let v = document.getElementById('inpDurasi').value; if(!v) { document.getElementById('errDurasi').textContent="Pilih durasi dulu"; return;} dataForm.durasi = v; step=4; renderStep();}
 function showLoading(){
   let v = document.getElementById('inpPeserta').value;
-  if(!v || v<2 || v>20) { document.getElementById('errPeserta').textContent="Jumlah peserta 2–20"; return;}
+  if(!v || v<1 || v>10) { document.getElementById('errPeserta').textContent="Jumlah peserta 1–10"; return;}
   dataForm.peserta = v;
   step="loading"; renderStep();
   setTimeout(()=>{
@@ -844,8 +854,7 @@ function resetForm(){ step=1; dataForm = { kota:"", tanggal:"", durasi:"", peser
 function copyResult(){
   let kota = dataForm.kota, durasi = dataForm.durasi, peserta = parseInt(dataForm.peserta), tanggal = dataForm.tanggal;
   let hargaArray = hargaData[durasi] && hargaData[durasi][kota];
-  let idx = peserta-2;
-  if(idx<0) idx=0; if(idx>hargaArray.length-1) idx=hargaArray.length-1;
+  let idx = peserta-1;
   let harga = hargaArray ? hargaArray[idx] : 0;
   let hargaTotal = harga*peserta;
   let tglText = tanggal?new Date(tanggal).toLocaleDateString('id-ID',{day:"numeric",month:"long",year:"numeric"}):'-';
@@ -910,6 +919,7 @@ document.addEventListener('keydown',function(e){
     else if(step===4 && inp.id==="inpPeserta") showLoading();
   }
 });
-  </script>
+</script>
+
 </body>
 </html>
