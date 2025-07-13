@@ -258,7 +258,7 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   box-shadow: 0 4px 18px #1976d216;
 }
 @media (max-width:700px){
-    main {
+  main {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -268,7 +268,23 @@ select:focus, input:focus { border: 1.7px solid var(--primary);}
   .wa-btn { min-width: 96vw;}
   .back-btn-wrap { margin-bottom: 48px !important; }
   .back-btn { padding: 13px 29px 13px 16px; font-size: 1.08rem; min-width: 0; }
+
+  /* Tambahan khusus QR di HP */
+  #qrWrap img {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-radius: 1.1rem;
+    box-shadow: 0 2px 12px #8882;
+    padding: 10px;
+    margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
+
 /* ========== END TOMBOL BACK BARU ========== */
 
 .hasil-harga { margin-top: 8px; padding: 22px 0 0 0; text-align: center;}
